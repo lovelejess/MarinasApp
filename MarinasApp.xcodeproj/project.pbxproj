@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */; };
+		1698F9D428B6F6ED00B0DFF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */; };
+		1698F9D628B6F6ED00B0DFF5 /* MarinaPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */; };
+		1698F9D928B6F6ED00B0DFF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */; };
+		1698F9DB28B6F6EF00B0DFF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */; };
+		1698F9DE28B6F6EF00B0DFF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */; };
+		1698F9E928B6F6EF00B0DFF5 /* MarinasAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9E828B6F6EF00B0DFF5 /* MarinasAppTests.swift */; };
+		1698F9F328B6F6EF00B0DFF5 /* MarinasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9F228B6F6EF00B0DFF5 /* MarinasAppUITests.swift */; };
+		1698F9F528B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9F428B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift */; };
+		1698FA0228B6F71D00B0DFF5 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */; };
+		1698FA0428B6F73500B0DFF5 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA0328B6F73500B0DFF5 /* Point.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1698F9E528B6F6EF00B0DFF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1698F9C628B6F6ED00B0DFF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1698F9CD28B6F6ED00B0DFF5;
+			remoteInfo = MarinasApp;
+		};
+		1698F9EF28B6F6EF00B0DFF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1698F9C628B6F6ED00B0DFF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1698F9CD28B6F6ED00B0DFF5;
+			remoteInfo = MarinasApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1698F9CE28B6F6ED00B0DFF5 /* MarinasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarinasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinaPointsViewController.swift; sourceTree = "<group>"; };
+		1698F9D828B6F6ED00B0DFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1698F9DD28B6F6EF00B0DFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1698F9DF28B6F6EF00B0DFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1698F9E428B6F6EF00B0DFF5 /* MarinasAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarinasAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1698F9E828B6F6EF00B0DFF5 /* MarinasAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasAppTests.swift; sourceTree = "<group>"; };
+		1698F9EE28B6F6EF00B0DFF5 /* MarinasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarinasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1698F9F228B6F6EF00B0DFF5 /* MarinasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasAppUITests.swift; sourceTree = "<group>"; };
+		1698F9F428B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
+		1698FA0328B6F73500B0DFF5 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1698F9CB28B6F6ED00B0DFF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1698F9E128B6F6EF00B0DFF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1698F9EB28B6F6EF00B0DFF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1698F9C528B6F6ED00B0DFF5 = {
+			isa = PBXGroup;
+			children = (
+				1698F9D028B6F6ED00B0DFF5 /* MarinasApp */,
+				1698F9E728B6F6EF00B0DFF5 /* MarinasAppTests */,
+				1698F9F128B6F6EF00B0DFF5 /* MarinasAppUITests */,
+				1698F9CF28B6F6ED00B0DFF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1698F9CF28B6F6ED00B0DFF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1698F9CE28B6F6ED00B0DFF5 /* MarinasApp.app */,
+				1698F9E428B6F6EF00B0DFF5 /* MarinasAppTests.xctest */,
+				1698F9EE28B6F6EF00B0DFF5 /* MarinasAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1698F9D028B6F6ED00B0DFF5 /* MarinasApp */ = {
+			isa = PBXGroup;
+			children = (
+				1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */,
+				1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */,
+				1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */,
+				1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */,
+				1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */,
+				1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */,
+				1698F9DF28B6F6EF00B0DFF5 /* Info.plist */,
+				1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */,
+				1698FA0328B6F73500B0DFF5 /* Point.swift */,
+			);
+			path = MarinasApp;
+			sourceTree = "<group>";
+		};
+		1698F9E728B6F6EF00B0DFF5 /* MarinasAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1698F9E828B6F6EF00B0DFF5 /* MarinasAppTests.swift */,
+			);
+			path = MarinasAppTests;
+			sourceTree = "<group>";
+		};
+		1698F9F128B6F6EF00B0DFF5 /* MarinasAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1698F9F228B6F6EF00B0DFF5 /* MarinasAppUITests.swift */,
+				1698F9F428B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift */,
+			);
+			path = MarinasAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1698F9CD28B6F6ED00B0DFF5 /* MarinasApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1698F9F828B6F6EF00B0DFF5 /* Build configuration list for PBXNativeTarget "MarinasApp" */;
+			buildPhases = (
+				1698F9CA28B6F6ED00B0DFF5 /* Sources */,
+				1698F9CB28B6F6ED00B0DFF5 /* Frameworks */,
+				1698F9CC28B6F6ED00B0DFF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarinasApp;
+			productName = MarinasApp;
+			productReference = 1698F9CE28B6F6ED00B0DFF5 /* MarinasApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1698F9E328B6F6EF00B0DFF5 /* MarinasAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1698F9FB28B6F6EF00B0DFF5 /* Build configuration list for PBXNativeTarget "MarinasAppTests" */;
+			buildPhases = (
+				1698F9E028B6F6EF00B0DFF5 /* Sources */,
+				1698F9E128B6F6EF00B0DFF5 /* Frameworks */,
+				1698F9E228B6F6EF00B0DFF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1698F9E628B6F6EF00B0DFF5 /* PBXTargetDependency */,
+			);
+			name = MarinasAppTests;
+			productName = MarinasAppTests;
+			productReference = 1698F9E428B6F6EF00B0DFF5 /* MarinasAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1698F9ED28B6F6EF00B0DFF5 /* MarinasAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1698F9FE28B6F6EF00B0DFF5 /* Build configuration list for PBXNativeTarget "MarinasAppUITests" */;
+			buildPhases = (
+				1698F9EA28B6F6EF00B0DFF5 /* Sources */,
+				1698F9EB28B6F6EF00B0DFF5 /* Frameworks */,
+				1698F9EC28B6F6EF00B0DFF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1698F9F028B6F6EF00B0DFF5 /* PBXTargetDependency */,
+			);
+			name = MarinasAppUITests;
+			productName = MarinasAppUITests;
+			productReference = 1698F9EE28B6F6EF00B0DFF5 /* MarinasAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1698F9C628B6F6ED00B0DFF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					1698F9CD28B6F6ED00B0DFF5 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					1698F9E328B6F6EF00B0DFF5 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1698F9CD28B6F6ED00B0DFF5;
+					};
+					1698F9ED28B6F6EF00B0DFF5 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1698F9CD28B6F6ED00B0DFF5;
+					};
+				};
+			};
+			buildConfigurationList = 1698F9C928B6F6ED00B0DFF5 /* Build configuration list for PBXProject "MarinasApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1698F9C528B6F6ED00B0DFF5;
+			productRefGroup = 1698F9CF28B6F6ED00B0DFF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1698F9CD28B6F6ED00B0DFF5 /* MarinasApp */,
+				1698F9E328B6F6EF00B0DFF5 /* MarinasAppTests */,
+				1698F9ED28B6F6EF00B0DFF5 /* MarinasAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1698F9CC28B6F6ED00B0DFF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1698F9DE28B6F6EF00B0DFF5 /* LaunchScreen.storyboard in Resources */,
+				1698F9DB28B6F6EF00B0DFF5 /* Assets.xcassets in Resources */,
+				1698F9D928B6F6ED00B0DFF5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1698F9E228B6F6EF00B0DFF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1698F9EC28B6F6EF00B0DFF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1698F9CA28B6F6ED00B0DFF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1698F9D628B6F6ED00B0DFF5 /* MarinaPointsViewController.swift in Sources */,
+				1698FA0428B6F73500B0DFF5 /* Point.swift in Sources */,
+				1698FA0228B6F71D00B0DFF5 /* PointCollectionViewCell.swift in Sources */,
+				1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */,
+				1698F9D428B6F6ED00B0DFF5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1698F9E028B6F6EF00B0DFF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1698F9E928B6F6EF00B0DFF5 /* MarinasAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1698F9EA28B6F6EF00B0DFF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1698F9F528B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift in Sources */,
+				1698F9F328B6F6EF00B0DFF5 /* MarinasAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1698F9E628B6F6EF00B0DFF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1698F9CD28B6F6ED00B0DFF5 /* MarinasApp */;
+			targetProxy = 1698F9E528B6F6EF00B0DFF5 /* PBXContainerItemProxy */;
+		};
+		1698F9F028B6F6EF00B0DFF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1698F9CD28B6F6ED00B0DFF5 /* MarinasApp */;
+			targetProxy = 1698F9EF28B6F6EF00B0DFF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1698F9D828B6F6ED00B0DFF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1698F9DD28B6F6EF00B0DFF5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1698F9F628B6F6EF00B0DFF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1698F9F728B6F6EF00B0DFF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1698F9F928B6F6EF00B0DFF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N993RX34M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarinasApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lovelejess.MarinasApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1698F9FA28B6F6EF00B0DFF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N993RX34M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarinasApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lovelejess.MarinasApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1698F9FC28B6F6EF00B0DFF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N993RX34M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lovelejess.MarinasAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarinasApp.app/MarinasApp";
+			};
+			name = Debug;
+		};
+		1698F9FD28B6F6EF00B0DFF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N993RX34M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lovelejess.MarinasAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarinasApp.app/MarinasApp";
+			};
+			name = Release;
+		};
+		1698F9FF28B6F6EF00B0DFF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N993RX34M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lovelejess.MarinasAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MarinasApp;
+			};
+			name = Debug;
+		};
+		1698FA0028B6F6EF00B0DFF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N993RX34M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lovelejess.MarinasAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MarinasApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1698F9C928B6F6ED00B0DFF5 /* Build configuration list for PBXProject "MarinasApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1698F9F628B6F6EF00B0DFF5 /* Debug */,
+				1698F9F728B6F6EF00B0DFF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1698F9F828B6F6EF00B0DFF5 /* Build configuration list for PBXNativeTarget "MarinasApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1698F9F928B6F6EF00B0DFF5 /* Debug */,
+				1698F9FA28B6F6EF00B0DFF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1698F9FB28B6F6EF00B0DFF5 /* Build configuration list for PBXNativeTarget "MarinasAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1698F9FC28B6F6EF00B0DFF5 /* Debug */,
+				1698F9FD28B6F6EF00B0DFF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1698F9FE28B6F6EF00B0DFF5 /* Build configuration list for PBXNativeTarget "MarinasAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1698F9FF28B6F6EF00B0DFF5 /* Debug */,
+				1698FA0028B6F6EF00B0DFF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1698F9C628B6F6ED00B0DFF5 /* Project object */;
+}
