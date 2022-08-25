@@ -18,6 +18,12 @@
 		1698F9F528B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9F428B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift */; };
 		1698FA0228B6F71D00B0DFF5 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */; };
 		1698FA0428B6F73500B0DFF5 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA0328B6F73500B0DFF5 /* Point.swift */; };
+		1698FA1528B6FCE700B0DFF5 /* MarinasCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1428B6FCE700B0DFF5 /* MarinasCoordinator.swift */; };
+		1698FA1728B6FCF900B0DFF5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1628B6FCF900B0DFF5 /* AppCoordinator.swift */; };
+		1698FA1928B6FCFC00B0DFF5 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1828B6FCFC00B0DFF5 /* Coordinatable.swift */; };
+		1698FA1D28B6FD0900B0DFF5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1C28B6FD0900B0DFF5 /* TabBarCoordinator.swift */; };
+		1698FA1F28B6FD1F00B0DFF5 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1E28B6FD1F00B0DFF5 /* Route.swift */; };
+		1698FA2128B6FD7A00B0DFF5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA2028B6FD7A00B0DFF5 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,12 @@
 		1698F9F428B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
 		1698FA0328B6F73500B0DFF5 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		1698FA1428B6FCE700B0DFF5 /* MarinasCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarinasCoordinator.swift; sourceTree = "<group>"; };
+		1698FA1628B6FCF900B0DFF5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1698FA1828B6FCFC00B0DFF5 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		1698FA1C28B6FD0900B0DFF5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		1698FA1E28B6FD1F00B0DFF5 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		1698FA2028B6FD7A00B0DFF5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +115,16 @@
 		1698F9D028B6F6ED00B0DFF5 /* MarinasApp */ = {
 			isa = PBXGroup;
 			children = (
+				1698FA1328B6FCD700B0DFF5 /* Coordinators */,
+				1698FA2228B6FE3F00B0DFF5 /* Marinas */,
+				1698FA2328B6FE5D00B0DFF5 /* Points */,
 				1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */,
-				1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */,
-				1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */,
-				1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */,
 				1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */,
-				1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */,
 				1698F9DF28B6F6EF00B0DFF5 /* Info.plist */,
-				1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */,
-				1698FA0328B6F73500B0DFF5 /* Point.swift */,
+				1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */,
+				1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */,
+				1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */,
+				1698FA2028B6FD7A00B0DFF5 /* TabBarController.swift */,
 			);
 			path = MarinasApp;
 			sourceTree = "<group>";
@@ -131,6 +144,35 @@
 				1698F9F428B6F6EF00B0DFF5 /* MarinasAppUITestsLaunchTests.swift */,
 			);
 			path = MarinasAppUITests;
+			sourceTree = "<group>";
+		};
+		1698FA1328B6FCD700B0DFF5 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA1628B6FCF900B0DFF5 /* AppCoordinator.swift */,
+				1698FA1828B6FCFC00B0DFF5 /* Coordinatable.swift */,
+				1698FA1428B6FCE700B0DFF5 /* MarinasCoordinator.swift */,
+				1698FA1E28B6FD1F00B0DFF5 /* Route.swift */,
+				1698FA1C28B6FD0900B0DFF5 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		1698FA2228B6FE3F00B0DFF5 /* Marinas */ = {
+			isa = PBXGroup;
+			children = (
+				1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */,
+			);
+			path = Marinas;
+			sourceTree = "<group>";
+		};
+		1698FA2328B6FE5D00B0DFF5 /* Points */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA0328B6F73500B0DFF5 /* Point.swift */,
+				1698FA0128B6F71D00B0DFF5 /* PointCollectionViewCell.swift */,
+			);
+			path = Points;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +308,15 @@
 			files = (
 				1698F9D628B6F6ED00B0DFF5 /* MarinaPointsViewController.swift in Sources */,
 				1698FA0428B6F73500B0DFF5 /* Point.swift in Sources */,
+				1698FA2128B6FD7A00B0DFF5 /* TabBarController.swift in Sources */,
 				1698FA0228B6F71D00B0DFF5 /* PointCollectionViewCell.swift in Sources */,
+				1698FA1F28B6FD1F00B0DFF5 /* Route.swift in Sources */,
 				1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */,
+				1698FA1528B6FCE700B0DFF5 /* MarinasCoordinator.swift in Sources */,
+				1698FA1928B6FCFC00B0DFF5 /* Coordinatable.swift in Sources */,
 				1698F9D428B6F6ED00B0DFF5 /* SceneDelegate.swift in Sources */,
+				1698FA1D28B6FD0900B0DFF5 /* TabBarCoordinator.swift in Sources */,
+				1698FA1728B6FCF900B0DFF5 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

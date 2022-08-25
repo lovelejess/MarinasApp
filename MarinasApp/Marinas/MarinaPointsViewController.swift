@@ -13,12 +13,14 @@ class MarinaPointsViewController: UIViewController {
         case main
     }
 
+    var coordinator: MarinasCoordinator?
     var marinasCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Point>!
     var nameFilter: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Marinas Home"
         configureCollectionView()
         configureDataSource()
     }
