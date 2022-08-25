@@ -1,0 +1,36 @@
+{
+    "id": "95cz",
+    "resource": "point",
+    "name": "Baltimore Yacht Basin",
+    "kind": "marina",
+    "rating": null,
+    "review_count": 0,
+    "location": {
+        "lat": 39.259790916124274,
+        "lon": -76.6135644707624,
+        "what3words": "fakes.dined.pepper"
+    },
+    "images": {
+        "resource": "list",
+        "data": [],
+        "total_count": 0
+    },
+    "web_url": "https://marinas.com/view/marina/95cz_Baltimore_Yacht_Basin_Baltimore_MD_United_States",
+    "api_url": "https://api.marinas.com/v1/marinas/95cz",
+    "icon_url": "https://marinas.com/assets/map/marker_marina-61b3ca5ea8e7fab4eef2d25df94457f060498ca1a72e3981715f46d2ab347db4.svg",
+    "fuel": {
+        "has_diesel": false,
+        "has_propane": false,
+        "has_gas": false,
+        "propane_price": null,
+        "diesel_price": null,
+        "gas_regular_price": null,
+        "gas_super_price": null,
+        "gas_premium_price": null
+    },
+    "icon_urls": {
+        "light": "https://marinas.com/assets/map/light/marker_marina-5010a82e1bce7bf8a225fe4d19cf9befa9acea1997dd43fcb46703722810b3a3.svg",
+        "regular": "https://marinas.com/assets/map/marker_marina-61b3ca5ea8e7fab4eef2d25df94457f060498ca1a72e3981715f46d2ab347db4.svg",
+        "dark": "https://marinas.com/assets/map/dark/marker_marina-813d72233e076185a2c77761f802728ced60cc0e72044871c1c15f0b9c0bcf58.svg"
+    }
+}

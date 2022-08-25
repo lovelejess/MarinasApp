@@ -24,6 +24,11 @@
 		1698FA1D28B6FD0900B0DFF5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1C28B6FD0900B0DFF5 /* TabBarCoordinator.swift */; };
 		1698FA1F28B6FD1F00B0DFF5 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA1E28B6FD1F00B0DFF5 /* Route.swift */; };
 		1698FA2128B6FD7A00B0DFF5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA2028B6FD7A00B0DFF5 /* TabBarController.swift */; };
+		1698FA2728B704A000B0DFF5 /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA2628B704A000B0DFF5 /* DataConverter.swift */; };
+		1698FA2A28B704D500B0DFF5 /* DataConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA2928B704D500B0DFF5 /* DataConverterTests.swift */; };
+		1698FA2D28B7052600B0DFF5 /* FakeJSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA2C28B7052600B0DFF5 /* FakeJSONLoader.swift */; };
+		1698FA3028B7059100B0DFF5 /* FakePointData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1698FA2F28B7059100B0DFF5 /* FakePointData.json */; };
+		1698FA3228B705F600B0DFF5 /* FakeFailureData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1698FA3128B705F600B0DFF5 /* FakeFailureData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		1698FA1C28B6FD0900B0DFF5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		1698FA1E28B6FD1F00B0DFF5 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		1698FA2028B6FD7A00B0DFF5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1698FA2628B704A000B0DFF5 /* DataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
+		1698FA2928B704D500B0DFF5 /* DataConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverterTests.swift; sourceTree = "<group>"; };
+		1698FA2C28B7052600B0DFF5 /* FakeJSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJSONLoader.swift; sourceTree = "<group>"; };
+		1698FA2F28B7059100B0DFF5 /* FakePointData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakePointData.json; sourceTree = "<group>"; };
+		1698FA3128B705F600B0DFF5 /* FakeFailureData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeFailureData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,7 @@
 			children = (
 				1698FA1328B6FCD700B0DFF5 /* Coordinators */,
 				1698FA2228B6FE3F00B0DFF5 /* Marinas */,
+				1698FA2528B7047E00B0DFF5 /* Networking */,
 				1698FA2328B6FE5D00B0DFF5 /* Points */,
 				1698FA2428B703B300B0DFF5 /* TabBar */,
 				1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */,
@@ -132,6 +143,9 @@
 		1698F9E728B6F6EF00B0DFF5 /* MarinasAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				1698FA2E28B7057200B0DFF5 /* FakeJSONData */,
+				1698FA2B28B7051A00B0DFF5 /* Fakes */,
+				1698FA2828B704BF00B0DFF5 /* Networking */,
 				1698F9E828B6F6EF00B0DFF5 /* MarinasAppTests.swift */,
 			);
 			path = MarinasAppTests;
@@ -181,6 +195,39 @@
 				1698FA2028B6FD7A00B0DFF5 /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		1698FA2528B7047E00B0DFF5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA2628B704A000B0DFF5 /* DataConverter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1698FA2828B704BF00B0DFF5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA2928B704D500B0DFF5 /* DataConverterTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1698FA2B28B7051A00B0DFF5 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA2C28B7052600B0DFF5 /* FakeJSONLoader.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
+		1698FA2E28B7057200B0DFF5 /* FakeJSONData */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA2F28B7059100B0DFF5 /* FakePointData.json */,
+				1698FA3128B705F600B0DFF5 /* FakeFailureData.json */,
+			);
+			path = FakeJSONData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +344,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1698FA3028B7059100B0DFF5 /* FakePointData.json in Resources */,
+				1698FA3228B705F600B0DFF5 /* FakeFailureData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +367,7 @@
 				1698FA0428B6F73500B0DFF5 /* Point.swift in Sources */,
 				1698FA2128B6FD7A00B0DFF5 /* TabBarController.swift in Sources */,
 				1698FA0228B6F71D00B0DFF5 /* PointCollectionViewCell.swift in Sources */,
+				1698FA2728B704A000B0DFF5 /* DataConverter.swift in Sources */,
 				1698FA1F28B6FD1F00B0DFF5 /* Route.swift in Sources */,
 				1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */,
 				1698FA1528B6FCE700B0DFF5 /* MarinasCoordinator.swift in Sources */,
@@ -332,6 +382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1698FA2A28B704D500B0DFF5 /* DataConverterTests.swift in Sources */,
+				1698FA2D28B7052600B0DFF5 /* FakeJSONLoader.swift in Sources */,
 				1698F9E928B6F6EF00B0DFF5 /* MarinasAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
