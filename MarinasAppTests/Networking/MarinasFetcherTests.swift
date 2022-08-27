@@ -38,6 +38,7 @@ class MarinasFetcherTests: XCTestCase {
     func test_GETPoints_successfullyRetreivesData() throws {
         let expectation = XCTestExpectation(description: "Complete Get Points")
         fakeNetworkService.fakeEndpoint(.points(id: id), with: FakeTestEndpoint.points(id: id).defaultResponseFileName)
+
         marinasFetcher
             .points(for: id)
             .receive(on: DispatchQueue.main)
@@ -59,5 +60,26 @@ class MarinasFetcherTests: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+    func test_GETPoints_failsToRetreiveData() throws {
+        let expectation = XCTestExpectation(description: "Fails to Get Points")
+        fakeNetworkService.fakeEndpoint(.points(id: id), with: FakeTestEndpoint.points(id: id).defaultResponseFailureFileName)
+
+        marinasFetcher
+            .points(for: id)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { value in
+              switch value {
+              case .failure:
+                expectation.fulfill()
+              case .finished:
+                XCTFail("Test should cause a failure")
+              }
+            }, receiveValue: { _ in
+                XCTFail("Test should cause a failure")
+            })
+            .store(in: &subscribers)
+
+        wait(for: [expectation], timeout: 0.5)
+    }
 
 }
