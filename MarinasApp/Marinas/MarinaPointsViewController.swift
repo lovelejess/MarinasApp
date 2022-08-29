@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class MarinaPointsViewController: UIViewController {
 
@@ -13,22 +14,42 @@ class MarinaPointsViewController: UIViewController {
         case main
     }
 
+    private var subscribers = [AnyCancellable]()
     var coordinator: MarinasCoordinator?
+    var viewModel: MarinasPointViewModel!
     var marinasCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Point>!
-    var nameFilter: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Marinas Home"
         configureCollectionView()
         configureDataSource()
+        bindUIComponents()
+    }
+
+    private func bindUIComponents() {
+        viewModel.$points
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { value in
+            switch value {
+            case .failure:
+                print("Failure")
+            case .finished:
+                print("Failure")
+            }
+        }, receiveValue: { [weak self] value in
+            guard let self = self else { return }
+            let snapshot = self.getUpdatedSnapshot(with: value)
+            self.dataSource.apply(snapshot, animatingDifferences: false)
+          })
+        .store(in: &subscribers)
     }
 }
 
 // MARK: Datasource
 extension MarinaPointsViewController {
-    func configureDataSource() {
+    private func configureDataSource() {
         
         let cellRegistration = UICollectionView.CellRegistration
         <PointCollectionViewCell, Point> { (cell, indexPath, point) in
@@ -44,10 +65,15 @@ extension MarinaPointsViewController {
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
-    func snapshotForInitialState() -> NSDiffableDataSourceSnapshot<Section, Point> {
+    private func snapshotForInitialState() -> NSDiffableDataSourceSnapshot<Section, Point> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Point>()
         snapshot.appendSections([Section.main])
-        let items = [Point(id: "1", name: "Point 1"), Point(id: "2", name: "Point 2"), Point(id: "3", name: "Point 3"), Point(id: "4", name: "Point 4")]
+        return snapshot
+    }
+
+    private func getUpdatedSnapshot(with items: [Point]) -> NSDiffableDataSourceSnapshot<Section, Point> {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Point>()
+        snapshot.appendSections([Section.main])
         snapshot.appendItems(items)
         return snapshot
     }
@@ -55,7 +81,7 @@ extension MarinaPointsViewController {
 
 // MARK: Layouts
 extension MarinaPointsViewController {
-    func configureCollectionView() {
+    private func configureCollectionView() {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureLayout())
         view.addSubview(collectionView)
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -65,7 +91,7 @@ extension MarinaPointsViewController {
         marinasCollectionView = collectionView
     }
 
-    func configureLayout() -> UICollectionViewLayout {
+    private func configureLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -86,4 +112,3 @@ extension MarinaPointsViewController {
 extension MarinaPointsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
 }
-

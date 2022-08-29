@@ -12,7 +12,7 @@ protocol MarinasFetcherable: AnyObject {
     /// Returns a publisher for `Points`
     ///
     /// - Returns: A publisher of type `<Point, Error>` used to return `Point`
-    func points(for id: String) -> AnyPublisher<Point, Error>
+    func point(for id: String) -> AnyPublisher<Point, Error>
 }
 
 class MarinasFetcher: MarinasFetcherable {
@@ -22,7 +22,7 @@ class MarinasFetcher: MarinasFetcherable {
         self.networkService = networkService
     }
 
-    func points(for id: String) -> AnyPublisher<Point, Error> {
+    func point(for id: String) -> AnyPublisher<Point, Error> {
         let urlRequest = URLRequest(url: MarinasFetcher.Endpoints.points(id: id).url)
         return networkService.decodableDataTaskPublisher(with: urlRequest)
     }

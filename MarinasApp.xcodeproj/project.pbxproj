@@ -35,6 +35,9 @@
 		1698FA3C28BAB73A00B0DFF5 /* MarinasFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA3B28BAB73A00B0DFF5 /* MarinasFetcherTests.swift */; };
 		1698FA3E28BABB7D00B0DFF5 /* FakeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA3D28BABB7D00B0DFF5 /* FakeNetworkService.swift */; };
 		1698FA4028BABBAA00B0DFF5 /* FakeTestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA3F28BABBAA00B0DFF5 /* FakeTestEndpoint.swift */; };
+		1698FA4228BAC67D00B0DFF5 /* FakeMarinasFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4128BAC67D00B0DFF5 /* FakeMarinasFetcher.swift */; };
+		1698FA4428BC437100B0DFF5 /* MarinasPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4328BC437100B0DFF5 /* MarinasPointViewModel.swift */; };
+		1698FA4728BC443900B0DFF5 /* MarinasPointViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4628BC443900B0DFF5 /* MarinasPointViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		1698FA3B28BAB73A00B0DFF5 /* MarinasFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasFetcherTests.swift; sourceTree = "<group>"; };
 		1698FA3D28BABB7D00B0DFF5 /* FakeNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkService.swift; sourceTree = "<group>"; };
 		1698FA3F28BABBAA00B0DFF5 /* FakeTestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTestEndpoint.swift; sourceTree = "<group>"; };
+		1698FA4128BAC67D00B0DFF5 /* FakeMarinasFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeMarinasFetcher.swift; sourceTree = "<group>"; };
+		1698FA4328BC437100B0DFF5 /* MarinasPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasPointViewModel.swift; sourceTree = "<group>"; };
+		1698FA4628BC443900B0DFF5 /* MarinasPointViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasPointViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 		1698F9E728B6F6EF00B0DFF5 /* MarinasAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				1698FA4528BC442400B0DFF5 /* Marinas */,
 				1698FA2E28B7057200B0DFF5 /* FakeJSONData */,
 				1698FA2828B704BF00B0DFF5 /* Networking */,
 				1698F9E828B6F6EF00B0DFF5 /* MarinasAppTests.swift */,
@@ -187,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */,
+				1698FA4328BC437100B0DFF5 /* MarinasPointViewModel.swift */,
 			);
 			path = Marinas;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 				1698FA2C28B7052600B0DFF5 /* FakeJSONLoader.swift */,
 				1698FA3D28BABB7D00B0DFF5 /* FakeNetworkService.swift */,
 				1698FA3F28BABBAA00B0DFF5 /* FakeTestEndpoint.swift */,
+				1698FA4128BAC67D00B0DFF5 /* FakeMarinasFetcher.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -246,6 +255,14 @@
 				1698FA3128B705F600B0DFF5 /* FakeFailureData.json */,
 			);
 			path = FakeJSONData;
+			sourceTree = "<group>";
+		};
+		1698FA4528BC442400B0DFF5 /* Marinas */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA4628BC443900B0DFF5 /* MarinasPointViewModelTests.swift */,
+			);
+			path = Marinas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +405,7 @@
 				1698FA2128B6FD7A00B0DFF5 /* TabBarController.swift in Sources */,
 				1698FA0228B6F71D00B0DFF5 /* PointCollectionViewCell.swift in Sources */,
 				1698FA2728B704A000B0DFF5 /* DataConverter.swift in Sources */,
+				1698FA4428BC437100B0DFF5 /* MarinasPointViewModel.swift in Sources */,
 				1698FA1F28B6FD1F00B0DFF5 /* Route.swift in Sources */,
 				1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */,
 				1698FA1528B6FCE700B0DFF5 /* MarinasCoordinator.swift in Sources */,
@@ -409,6 +427,8 @@
 				1698F9E928B6F6EF00B0DFF5 /* MarinasAppTests.swift in Sources */,
 				1698FA3C28BAB73A00B0DFF5 /* MarinasFetcherTests.swift in Sources */,
 				1698FA3E28BABB7D00B0DFF5 /* FakeNetworkService.swift in Sources */,
+				1698FA4728BC443900B0DFF5 /* MarinasPointViewModelTests.swift in Sources */,
+				1698FA4228BAC67D00B0DFF5 /* FakeMarinasFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

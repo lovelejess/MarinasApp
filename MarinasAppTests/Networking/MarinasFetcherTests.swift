@@ -40,7 +40,7 @@ class MarinasFetcherTests: XCTestCase {
         fakeNetworkService.fakeEndpoint(.points(id: id), with: FakeTestEndpoint.points(id: id).defaultResponseFileName)
 
         marinasFetcher
-            .points(for: id)
+            .point(for: id)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { value in
               switch value {
@@ -65,7 +65,7 @@ class MarinasFetcherTests: XCTestCase {
         fakeNetworkService.fakeEndpoint(.points(id: id), with: FakeTestEndpoint.points(id: id).defaultResponseFailureFileName)
 
         marinasFetcher
-            .points(for: id)
+            .point(for: id)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { value in
               switch value {

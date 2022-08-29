@@ -20,7 +20,7 @@ class MarinasCoordinator: Coordinatable {
     func navigate(to route: Route) {
         switch route {
         case .rootTabBar(.marinas(.home)):
-            navigateToPhotos()
+            navigateToPoints()
         default: parentCoordinator?.navigate(to: route)
         }
     }
@@ -29,12 +29,14 @@ class MarinasCoordinator: Coordinatable {
         // N/A
     }
 
-    private func navigateToPhotos() {
-
+    private func navigateToPoints() {
         if rootViewController.children.contains(where: { $0 is MarinaPointsViewController }) {
             navigationController.popToRootViewController(animated: true)
         } else {
             let marinaPointsViewController = MarinaPointsViewController()
+            let networkService = NetworkService(urlSession: .shared)
+            let marinasFetcher = MarinasFetcher(networkService: networkService)
+            marinaPointsViewController.viewModel = MarinasPointViewModel(marinasFetcher: marinasFetcher)
             marinaPointsViewController.coordinator = self
             navigationController.pushViewController(marinaPointsViewController, animated: true)
         }
