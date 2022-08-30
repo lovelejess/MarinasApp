@@ -27,7 +27,7 @@ class FakeMarinasFetcher: MarinasFetcherable {
     /// - Returns: A publisher of type `<Point, Error>` used to return `Point`
     func point(for id: String) -> AnyPublisher<Point, Error> {
 
-        let point = Point(id: "95cz", name: "")
+        let point = Point(id: "95cz", name: "Baltimore Yacht Basin", kind: .marina)
         return Just(point)
             .setFailureType(to: Error.self)
             .receive(on: DispatchQueue.main)

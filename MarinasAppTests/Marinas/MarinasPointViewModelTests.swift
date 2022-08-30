@@ -23,7 +23,7 @@ class MarinasPointViewModelTests: XCTestCase {
 
     func test_getPoints_returnsPoint() throws {
         let expectation = XCTestExpectation(description: "Successfully Gets Points")
-        let expected = [Point(id: id, name: "")]
+        let expected = [Point(id: id, name: "", kind: .marina)]
 
         viewModel = MarinasPointViewModel(marinasFetcher: fakeMarinasFetcher)
 

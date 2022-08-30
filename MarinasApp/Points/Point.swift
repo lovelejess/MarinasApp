@@ -7,9 +7,23 @@
 
 import Foundation
 
+enum Kind: String, Codable {
+    case anchorage
+    case bridge
+    case ferry
+    case harbor
+    case inlet
+    case landmark
+    case lighthouse
+    case lock
+    case marina
+    case ramp
+}
+
 struct Point: Codable, Hashable {
     let id: String
     let name: String?
+    let kind: Kind
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

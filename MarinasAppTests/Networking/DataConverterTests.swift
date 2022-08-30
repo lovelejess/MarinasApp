@@ -23,7 +23,7 @@ class DataConverterTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Successfully Decodes")
         guard let data = FakeJSONLoader.loadFile(for: "FakePointData") else { XCTFail("Unable load mock data");return }
 
-        let expected = Point(id: "95cz", name: "Baltimore Yacht Basin")
+        let expected = Point(id: "95cz", name: "Baltimore Yacht Basin", kind: .marina)
 
         dataConverter.decode(data)
             .receive(on: DispatchQueue.main)
@@ -37,6 +37,8 @@ class DataConverterTests: XCTestCase {
               }
             }, receiveValue: { (response: Point) in
                 XCTAssertEqual(response.id, expected.id)
+                XCTAssertEqual(response.name, expected.name)
+                XCTAssertEqual(response.kind, expected.kind)
                 expectation.fulfill()
             })
             .store(in: &subscribers)

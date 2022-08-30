@@ -36,7 +36,7 @@ class MarinaPointsViewController: UIViewController {
             case .failure:
                 print("Failure")
             case .finished:
-                print("Failure")
+                print("Finished")
             }
         }, receiveValue: { [weak self] value in
             guard let self = self else { return }
@@ -51,10 +51,7 @@ class MarinaPointsViewController: UIViewController {
 extension MarinaPointsViewController {
     private func configureDataSource() {
         
-        let cellRegistration = UICollectionView.CellRegistration
-        <PointCollectionViewCell, Point> { (cell, indexPath, point) in
-            cell.label.text = point.name
-        }
+        let cellRegistration = createPointsCellRegistration()
 
         dataSource = UICollectionViewDiffableDataSource<Section, Point>(collectionView: marinasCollectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, identifier: Point) -> UICollectionViewCell? in
@@ -77,6 +74,17 @@ extension MarinaPointsViewController {
         snapshot.appendItems(items)
         return snapshot
     }
+
+    private func createPointsCellRegistration() -> UICollectionView.CellRegistration<UICollectionViewListCell, Point> {
+        return UICollectionView.CellRegistration<UICollectionViewListCell, Point> { (cell, indexPath, point) in
+            var content = cell.defaultContentConfiguration()
+
+            // Configure content
+            content.text = point.name
+            content.secondaryText = point.kind.rawValue
+            cell.contentConfiguration = content
+        }
+    }
 }
 
 // MARK: Layouts
@@ -87,7 +95,6 @@ extension MarinaPointsViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
-        collectionView.register(PointCollectionViewCell.self, forCellWithReuseIdentifier: PointCollectionViewCell.reuseIdentifier)
         marinasCollectionView = collectionView
     }
 
