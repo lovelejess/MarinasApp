@@ -9,7 +9,8 @@ import XCTest
 @testable import MarinasApp
 
 class MarinasPointViewModelTests: XCTestCase {
-    let id = "95cz"
+    let id = "1234"
+    let iconURL = "https://fakeurl.com"
     private var viewModel: MarinasPointViewModel!
     private var urlSessionMock: URLSession!
     private var fakeMarinasFetcher: FakeMarinasFetcher!
@@ -23,7 +24,7 @@ class MarinasPointViewModelTests: XCTestCase {
 
     func test_getPoints_returnsPoint() throws {
         let expectation = XCTestExpectation(description: "Successfully Gets Points")
-        let expected = [Point(id: id, name: "", kind: .marina)]
+        let expected = [Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: iconURL)]
 
         viewModel = MarinasPointViewModel(marinasFetcher: fakeMarinasFetcher)
 

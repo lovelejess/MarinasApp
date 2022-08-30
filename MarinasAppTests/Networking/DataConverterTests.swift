@@ -11,6 +11,7 @@ import Combine
 @testable import MarinasApp
 
 class DataConverterTests: XCTestCase {
+    let iconURL = "https://marinas.com/assets/map/marker_marina-61b3ca5ea8e7fab4eef2d25df94457f060498ca1a72e3981715f46d2ab347db4.svg"
 
     private var dataConverter: DataConverter!
     private var subscribers = [AnyCancellable]()
@@ -23,7 +24,7 @@ class DataConverterTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Successfully Decodes")
         guard let data = FakeJSONLoader.loadFile(for: "FakePointData") else { XCTFail("Unable load mock data");return }
 
-        let expected = Point(id: "95cz", name: "Baltimore Yacht Basin", kind: .marina)
+        let expected = Point(id: "95cz", name: "Baltimore Yacht Basin", kind: .marina, iconURL: iconURL)
 
         dataConverter.decode(data)
             .receive(on: DispatchQueue.main)
@@ -39,6 +40,7 @@ class DataConverterTests: XCTestCase {
                 XCTAssertEqual(response.id, expected.id)
                 XCTAssertEqual(response.name, expected.name)
                 XCTAssertEqual(response.kind, expected.kind)
+                XCTAssertEqual(response.iconURL, expected.iconURL)
                 expectation.fulfill()
             })
             .store(in: &subscribers)

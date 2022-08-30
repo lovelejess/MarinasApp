@@ -24,6 +24,14 @@ struct Point: Codable, Hashable {
     let id: String
     let name: String?
     let kind: Kind
+    let iconURL: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case kind
+        case iconURL = "icon_url"
+    }
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SDWebImage
 
 class MarinaPointsViewController: UIViewController {
 
@@ -81,8 +82,16 @@ extension MarinaPointsViewController {
 
             // Configure content
             content.text = point.name
-            content.secondaryText = point.kind.rawValue
-            cell.contentConfiguration = content
+            
+            // TODO: Figure out how to load an SVG from URL
+//            let iconURL = point.iconURL ?? "https://picsum.photos/200"
+            let iconURL = "https://picsum.photos/200"
+            let imageView = UIImageView()
+            imageView.sd_setImage(with: URL(string: iconURL), placeholderImage: UIImage(named: "https://picsum.photos/200")) { (image, error, imageCacheType, imageUrl) in
+                content.image = imageView.image
+                content.secondaryText = point.kind.rawValue
+                cell.contentConfiguration = content
+            }
         }
     }
 }
@@ -94,6 +103,7 @@ extension MarinaPointsViewController {
         view.addSubview(collectionView)
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .systemBackground
+//        collectionView.register(PointCollectionViewCell.self, forCellWithReuseIdentifier: PointCollectionViewCell.reuseIdentifier)
         collectionView.delegate = self
         marinasCollectionView = collectionView
     }
