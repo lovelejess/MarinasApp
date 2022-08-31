@@ -33,4 +33,16 @@ class FakeMarinasFetcher: MarinasFetcherable {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+
+    /// Returns a static fake publisher immediately of either type `PointSearchResults` or `Error`
+    ///
+    /// - Returns: A publisher of type `<PointSearchResults, Error>` used to return `PointSearchResults`
+    func search(for query: String) -> AnyPublisher<PointSearchResults, Error> {
+        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com")
+        let pointSearchResults = PointSearchResults(data: [point])
+        return Just(pointSearchResults)
+            .setFailureType(to: Error.self)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }

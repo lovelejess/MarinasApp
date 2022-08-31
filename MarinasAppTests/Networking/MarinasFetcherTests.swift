@@ -35,6 +35,20 @@ class MarinasFetcherTests: XCTestCase {
         XCTAssertEqual(actualQueryItems, expectedQueryItems)
     }
 
+    func test_GETSearchEndpoint_returnsCorrectURL() throws {
+        let expectedURL = "https://api.marinas.com/v1/points/search"
+        let expectedComponents = try XCTUnwrap(URLComponents(string: expectedURL))
+        let expectedQueryItems = [URLQueryItem(name: "access_token", value: "cPEQZFRWsBNZBV3YNi1T")]
+
+        let actual = try XCTUnwrap(MarinasFetcher.Endpoints.search.url)
+        let actualComponents = try XCTUnwrap(URLComponents(url: actual, resolvingAgainstBaseURL: true))
+        let actualQueryItems = actualComponents.queryItems
+
+        XCTAssertEqual(actualComponents.host, expectedComponents.host)
+        XCTAssertEqual(actualComponents.path, expectedComponents.path)
+        XCTAssertEqual(actualQueryItems, expectedQueryItems)
+    }
+
     func test_GETPoints_successfullyRetreivesData() throws {
         let expectation = XCTestExpectation(description: "Complete Get Points")
         fakeNetworkService.fakeEndpoint(.points(id: id), with: FakeTestEndpoint.points(id: id).defaultResponseFileName)

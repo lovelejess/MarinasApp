@@ -15,6 +15,7 @@ class MarinaPointsViewController: UIViewController {
         case main
     }
 
+    let searchController = UISearchController(searchResultsController: nil)
     private var subscribers = [AnyCancellable]()
     var coordinator: MarinasCoordinator?
     var viewModel: MarinasPointViewModel!
@@ -24,6 +25,7 @@ class MarinaPointsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Marinas Home"
+        configureSearchController()
         configureCollectionView()
         configureDataSource()
         bindUIComponents()
@@ -45,6 +47,16 @@ class MarinaPointsViewController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: false)
           })
         .store(in: &subscribers)
+    }
+
+    private func configureSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Marina Points"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.searchBar.scopeButtonTitles = Kind.getPopularFilters().map { $0.rawValue }
+        searchController.searchBar.delegate = self
     }
 }
 
@@ -103,7 +115,6 @@ extension MarinaPointsViewController {
         view.addSubview(collectionView)
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .systemBackground
-//        collectionView.register(PointCollectionViewCell.self, forCellWithReuseIdentifier: PointCollectionViewCell.reuseIdentifier)
         collectionView.delegate = self
         marinasCollectionView = collectionView
     }
@@ -128,4 +139,23 @@ extension MarinaPointsViewController {
 // MARK: UICollectionViewDelegate
 extension MarinaPointsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+}
+
+// MARK: UISearchResultsUpdating
+extension MarinaPointsViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+      let searchBar = searchController.searchBar
+      print("JESS: text: \(searchBar.text)")
+
+      guard let query = searchBar.text, query.count > 1 else { return }
+      print("JESS: sending searchText: \(query)")
+      viewModel.searchText.send(query)
+  }
+}
+
+// MARK: UISearchBarDelegate
+extension MarinaPointsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+
+  }
 }

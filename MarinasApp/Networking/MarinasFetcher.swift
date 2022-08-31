@@ -11,6 +11,11 @@ import Combine
 protocol MarinasFetcherable: AnyObject {
     /// Returns a publisher for `Points`
     ///
+    /// - Returns: A publisher of type `<PointSearchResults, Error>` used to return `PointSearchResults`
+    func search(for query: String) -> AnyPublisher<PointSearchResults, Error>
+
+    /// Returns a publisher for `Points`
+    ///
     /// - Returns: A publisher of type `<Point, Error>` used to return `Point`
     func point(for id: String) -> AnyPublisher<Point, Error>
 }
@@ -20,6 +25,13 @@ class MarinasFetcher: MarinasFetcherable {
 
     init(networkService: Networkable) {
         self.networkService = networkService
+    }
+
+    func search(for query: String) -> AnyPublisher<PointSearchResults, Error> {
+        // TODO: User actual query - right now it returns ALL search results
+//        let queryItem = URLQueryItem(name: <#T##String#>, value: <#T##String?#>)
+        let urlRequest = URLRequest(url: MarinasFetcher.Endpoints.search.url)
+        return networkService.decodableDataTaskPublisher(with: urlRequest)
     }
 
     func point(for id: String) -> AnyPublisher<Point, Error> {
@@ -36,10 +48,12 @@ extension MarinasFetcher {
         private static var clientIdQuery = URLQueryItem(name: "access_token", value: accessToken)
 
         case points(id: String)
+        case search
 
         private var path: String {
             switch self {
             case .points(let id): return "/v1/points/\(id)"
+            case .search: return "/v1/points/search"
             }
         }
 
@@ -47,6 +61,11 @@ extension MarinasFetcher {
             var urlComponents: URLComponents
             switch self {
             case .points:
+                urlComponents = URLComponents()
+                urlComponents.host = Endpoints.host
+                urlComponents.path = path
+                urlComponents.queryItems = [ Endpoints.clientIdQuery ]
+            case .search:
                 urlComponents = URLComponents()
                 urlComponents.host = Endpoints.host
                 urlComponents.path = path

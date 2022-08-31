@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Kind: String, Codable {
+enum Kind: String, Codable, CaseIterable {
     case anchorage
     case bridge
     case ferry
@@ -18,6 +18,13 @@ enum Kind: String, Codable {
     case lock
     case marina
     case ramp
+
+    /// This returns a list of popular `Kinds` for `Points`
+    ///
+    /// - Returns: a list of "popular" `Kind`
+    static func getPopularFilters() -> [Kind] {
+        return [.harbor, .landmark, .marina, .ramp]
+    }
 }
 
 struct Point: Codable, Hashable {
@@ -25,7 +32,7 @@ struct Point: Codable, Hashable {
     let name: String?
     let kind: Kind
     let iconURL: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case name
