@@ -61,8 +61,6 @@ class TabBarCoordinator: Coordinatable {
             switch route {
             case .rootTabBar(.marinas(_)):
                 tabBarViewController.selectedViewController = marinasCoordinator.rootViewController
-            default:
-                parentCoordinator?.navigate(to: route)
             }
         }
     }

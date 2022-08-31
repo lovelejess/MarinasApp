@@ -21,7 +21,6 @@ class MarinasCoordinator: Coordinatable {
         switch route {
         case .rootTabBar(.marinas(.home)):
             navigateToPoints()
-        default: parentCoordinator?.navigate(to: route)
         }
     }
 

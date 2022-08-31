@@ -145,7 +145,7 @@ extension MarinaPointsViewController: UICollectionViewDelegate {
 extension MarinaPointsViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
       let searchBar = searchController.searchBar
-      print("JESS: text: \(searchBar.text)")
+      print("JESS: text: \(String(describing: searchBar.text))")
 
       guard let query = searchBar.text, query.count > 1 else { return }
       print("JESS: sending searchText: \(query)")
