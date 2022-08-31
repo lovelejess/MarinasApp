@@ -29,7 +29,6 @@ class MarinasFetcher: MarinasFetcherable {
 
     func search(for query: String) -> AnyPublisher<PointSearchResults, Error> {
         // TODO: User actual query - right now it returns ALL search results
-//        let queryItem = URLQueryItem(name: <#T##String#>, value: <#T##String?#>)
         let urlRequest = URLRequest(url: MarinasFetcher.Endpoints.search.url)
         return networkService.decodableDataTaskPublisher(with: urlRequest)
     }

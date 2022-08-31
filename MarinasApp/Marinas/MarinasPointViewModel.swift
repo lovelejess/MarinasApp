@@ -73,7 +73,7 @@ class MarinasPointViewModel {
         searchText
         .debounce(for: .milliseconds(800), scheduler: RunLoop.main)
         .removeDuplicates()
-        .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
+        .compactMap{ $0 }
         .sink { (_) in
             //
         } receiveValue: { [self] (query) in
