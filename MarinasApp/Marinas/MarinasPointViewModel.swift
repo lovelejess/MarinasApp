@@ -16,6 +16,7 @@ class MarinasPointViewModel {
     @Published
     var points: [Point] = []
     
+    var point = PassthroughSubject<Point, Error>()
     var searchText = PassthroughSubject<String, Never>()
 
     init(marinasFetcher: MarinasFetcherable) {
@@ -49,23 +50,22 @@ class MarinasPointViewModel {
     ///
     func getPointInfo(for id: String = "95cz") {
         marinasFetcher.point(for: id)
-            .sink(receiveCompletion: { [weak self] value in
-                guard let self = self else { return }
-                switch value {
-                case .failure:
-                    // TODO: More Granular Error Handling
-                    self.points = []
-                case .finished:
-                    return
-                }
-            }, receiveValue: { [weak self] response in
-                guard let self = self else { return }
+        .sink(receiveCompletion: { [weak self] value in
+            guard let self = self else { return }
+            switch value {
+            case .failure:
+                // TODO: More Granular Error Handling
+                self.point.send(completion: .failure(NetworkError.parsing(description: "FIX ME")))
+            case .finished:
+                return
+            }
+        }, receiveValue: { [weak self] response in
+            guard let self = self else { return }
 
-                // TODO: Currently only one Point
-                self.points = [response]
+            self.point.send(response)
 
-            })
-            .store(in: &subscribers)
+        })
+        .store(in: &subscribers)
     }
 
     private func subscribeToSearchText() {

@@ -47,6 +47,21 @@ class MarinaPointsViewController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: false)
           })
         .store(in: &subscribers)
+
+        viewModel.point
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { value in
+            switch value {
+            case .failure:
+                print("Failure")
+            case .finished:
+                print("Finished")
+            }
+        }, receiveValue: { [weak self] pointValue in
+            guard let self = self else { return }
+            self.coordinator?.navigate(to: .rootTabBar(.marinas(.point(point: pointValue.name ?? "" ))))
+          })
+        .store(in: &subscribers)
     }
 
     private func configureSearchController() {
@@ -134,17 +149,18 @@ extension MarinaPointsViewController {
 
 // MARK: UICollectionViewDelegate
 extension MarinaPointsViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let point = viewModel.points[indexPath.row]
+        viewModel.getPointInfo(for: point.id)
+        collectionView.deselectItem(at: indexPath, animated: false)
+    }
 }
 
 // MARK: UISearchResultsUpdating
 extension MarinaPointsViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
       let searchBar = searchController.searchBar
-      print("JESS: text: \(String(describing: searchBar.text))")
-
       guard let query = searchBar.text, query.count > 1 else { return }
-      print("JESS: sending searchText: \(query)")
       viewModel.searchText.send(query)
   }
 }

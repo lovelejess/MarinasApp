@@ -38,6 +38,8 @@
 		1698FA4428BC437100B0DFF5 /* MarinasPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4328BC437100B0DFF5 /* MarinasPointViewModel.swift */; };
 		1698FA4728BC443900B0DFF5 /* MarinasPointViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4628BC443900B0DFF5 /* MarinasPointViewModelTests.swift */; };
 		1698FA4B28BEEA6F00B0DFF5 /* PointSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4A28BEEA6F00B0DFF5 /* PointSearchResults.swift */; };
+		1698FA4E28C0434200B0DFF5 /* PointDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4D28C0434200B0DFF5 /* PointDetailsViewController.swift */; };
+		1698FA5028C0443900B0DFF5 /* PointDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698FA4F28C0443900B0DFF5 /* PointDetailsViewModel.swift */; };
 		27C82096610E41DAC76E291F /* Pods_MarinasApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F7C0A6A6B43633BCC471EE /* Pods_MarinasApp.framework */; };
 		7A2EFDFC3F64ABB44ABD4A72 /* Pods_MarinasAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BC4F6BFA7D94448127D350 /* Pods_MarinasAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		1698FA4328BC437100B0DFF5 /* MarinasPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasPointViewModel.swift; sourceTree = "<group>"; };
 		1698FA4628BC443900B0DFF5 /* MarinasPointViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasPointViewModelTests.swift; sourceTree = "<group>"; };
 		1698FA4A28BEEA6F00B0DFF5 /* PointSearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSearchResults.swift; sourceTree = "<group>"; };
+		1698FA4D28C0434200B0DFF5 /* PointDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailsViewController.swift; sourceTree = "<group>"; };
+		1698FA4F28C0443900B0DFF5 /* PointDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailsViewModel.swift; sourceTree = "<group>"; };
 		25BC4F6BFA7D94448127D350 /* Pods_MarinasAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarinasAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F7C0A6A6B43633BCC471EE /* Pods_MarinasApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarinasApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		493227914FBF38AEA4155C1C /* Pods-MarinasApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarinasApp.debug.xcconfig"; path = "Target Support Files/Pods-MarinasApp/Pods-MarinasApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				1698FA2228B6FE3F00B0DFF5 /* Marinas */,
 				1698FA2528B7047E00B0DFF5 /* Networking */,
 				1698FA2328B6FE5D00B0DFF5 /* Points */,
+				1698FA4C28C0431300B0DFF5 /* PointDetails */,
 				1698FA2428B703B300B0DFF5 /* TabBar */,
 				1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */,
 				1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */,
@@ -284,6 +289,15 @@
 				1698FA4628BC443900B0DFF5 /* MarinasPointViewModelTests.swift */,
 			);
 			path = Marinas;
+			sourceTree = "<group>";
+		};
+		1698FA4C28C0431300B0DFF5 /* PointDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1698FA4D28C0434200B0DFF5 /* PointDetailsViewController.swift */,
+				1698FA4F28C0443900B0DFF5 /* PointDetailsViewModel.swift */,
+			);
+			path = PointDetails;
 			sourceTree = "<group>";
 		};
 		F74CE16F68121B60CB1FF8C4 /* Pods */ = {
@@ -504,8 +518,10 @@
 				1698FA2128B6FD7A00B0DFF5 /* TabBarController.swift in Sources */,
 				1698FA4B28BEEA6F00B0DFF5 /* PointSearchResults.swift in Sources */,
 				1698FA2728B704A000B0DFF5 /* DataConverter.swift in Sources */,
+				1698FA4E28C0434200B0DFF5 /* PointDetailsViewController.swift in Sources */,
 				1698FA4428BC437100B0DFF5 /* MarinasPointViewModel.swift in Sources */,
 				1698FA1F28B6FD1F00B0DFF5 /* Route.swift in Sources */,
+				1698FA5028C0443900B0DFF5 /* PointDetailsViewModel.swift in Sources */,
 				1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */,
 				1698FA1528B6FCE700B0DFF5 /* MarinasCoordinator.swift in Sources */,
 				1698FA1928B6FCFC00B0DFF5 /* Coordinatable.swift in Sources */,

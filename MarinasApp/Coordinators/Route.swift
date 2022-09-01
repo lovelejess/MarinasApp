@@ -16,5 +16,6 @@ enum Route: Equatable {
 
     enum HomeRoute: Equatable {
         case home
+        case point(point: String)
     }
 }
