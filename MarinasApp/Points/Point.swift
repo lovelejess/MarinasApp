@@ -45,9 +45,9 @@ struct PointImages: Codable, Hashable {
 
 struct Point: Codable, Hashable {
     let id: String
-    let name: String?
+    let name: String
     let kind: Kind
-    let iconURL: String?
+    let iconURL: String
     let images: PointImages
 
     enum CodingKeys: String, CodingKey {

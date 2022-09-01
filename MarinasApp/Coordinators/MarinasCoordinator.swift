@@ -21,8 +21,8 @@ class MarinasCoordinator: Coordinatable {
         switch route {
         case .rootTabBar(.marinas(.home)):
             navigateToMarinaSearch()
-        case .rootTabBar(.marinas(.point(let value))):
-            navigateToPoint(for: value)
+        case .rootTabBar(.marinas(.point(let details))):
+            navigateToPoint(for: details)
         }
     }
 
@@ -43,16 +43,14 @@ class MarinasCoordinator: Coordinatable {
         }
     }
 
-    private func navigateToPoint(for value: String) {
+    private func navigateToPoint(for details: PointDetails) {
         if rootViewController.children.contains(where: { $0 is PointDetailsViewController }) {
             navigationController.popToRootViewController(animated: true)
         } else {
             let pointDetailsViewController = PointDetailsViewController()
             let networkService = NetworkService(urlSession: .shared)
             let marinasFetcher = MarinasFetcher(networkService: networkService)
-            let images = PointImages(data: [PointImage(resource: "Resource", thumbnailUrl: "Thumnail URL", smallUrl: "Small")])
-            let point = Point(id: "1234", name: value, kind: .harbor, iconURL: "iconURL", images: images)
-            pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: point)
+            pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: details)
             pointDetailsViewController.coordinator = self
             navigationController.pushViewController(pointDetailsViewController, animated: true)
         }

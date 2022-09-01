@@ -10,15 +10,19 @@ import Foundation
 class PointDetailsViewModel {
 
     private var marinasFetcher: MarinasFetcherable!
-    var point: Point
+    private var point: PointDetails
 
-    init(marinasFetcher: MarinasFetcherable, point: Point) {
+    init(marinasFetcher: MarinasFetcherable, point: PointDetails) {
         self.marinasFetcher = marinasFetcher
         self.point = point
     }
 
     func getName() -> String {
-        return point.name ?? ""
+        return point.name
+    }
+
+    func getImageName() -> String? {
+        return point.image
     }
 
 }

@@ -57,9 +57,10 @@ class MarinaPointsViewController: UIViewController {
             case .finished:
                 print("Finished")
             }
-        }, receiveValue: { [weak self] pointValue in
+        }, receiveValue: { [weak self] point in
             guard let self = self else { return }
-            self.coordinator?.navigate(to: .rootTabBar(.marinas(.point(point: pointValue.name ?? "" ))))
+            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl ?? "")
+            self.coordinator?.navigate(to: .rootTabBar(.marinas(.point(point: pointDetails))))
           })
         .store(in: &subscribers)
     }
@@ -108,7 +109,7 @@ extension MarinaPointsViewController {
 
             // Configure content
             content.text = point.name
-            let placeHolderImageURL = "https://picsum.photos/id/1025/200/300"
+            let placeHolderImageURL = "https://picsum.photos/id/1025/200"
             let imageView = UIImageView()
             imageView.sd_setImage(with: URL(string: point.images.data.first?.thumbnailUrl ?? placeHolderImageURL), placeholderImage: UIImage(named: placeHolderImageURL)) { (image, error, imageCacheType, imageUrl) in
                 content.image = imageView.image
