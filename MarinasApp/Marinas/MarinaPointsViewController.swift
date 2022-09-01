@@ -55,7 +55,6 @@ class MarinaPointsViewController: UIViewController {
         searchController.searchBar.placeholder = "Search Marina Points"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        searchController.searchBar.scopeButtonTitles = Kind.getPopularFilters().map { $0.rawValue }
         searchController.searchBar.delegate = self
     }
 }

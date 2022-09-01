@@ -20,7 +20,6 @@ class MarinasPointViewModel {
 
     init(marinasFetcher: MarinasFetcherable) {
         self.marinasFetcher = marinasFetcher
-        getPointInfo()
         subscribeToSearchText()
     }
 
