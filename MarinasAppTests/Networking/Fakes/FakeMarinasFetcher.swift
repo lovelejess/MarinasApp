@@ -11,7 +11,7 @@ import Combine
 
 
 class FakeMarinasFetcher: MarinasFetcherable {
-
+    private let images = PointImages(data: [PointImage(resource: "Resource", thumbnailUrl: "Thumnail URL", smallUrl: "Small URL")])
     private let networkService: Networkable!
 
     static var pointsPublisher: AnyPublisher<Point, Error> {
@@ -26,8 +26,7 @@ class FakeMarinasFetcher: MarinasFetcherable {
     ///
     /// - Returns: A publisher of type `<Point, Error>` used to return `Point`
     func point(for id: String) -> AnyPublisher<Point, Error> {
-
-        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com")
+        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com", images: images)
         return Just(point)
             .setFailureType(to: Error.self)
             .receive(on: DispatchQueue.main)
@@ -38,7 +37,7 @@ class FakeMarinasFetcher: MarinasFetcherable {
     ///
     /// - Returns: A publisher of type `<PointSearchResults, Error>` used to return `PointSearchResults`
     func search(for query: String) -> AnyPublisher<PointSearchResults, Error> {
-        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com")
+        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com", images: images)
         let pointSearchResults = PointSearchResults(data: [point])
         return Just(pointSearchResults)
             .setFailureType(to: Error.self)

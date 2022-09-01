@@ -12,11 +12,15 @@ import Combine
 
 class DataConverterTests: XCTestCase {
     let iconURL = "https://marinas.com/assets/map/marker_marina-61b3ca5ea8e7fab4eef2d25df94457f060498ca1a72e3981715f46d2ab347db4.svg"
+    let thumbnailURL = "https://img.marinas.com/v2/21a35907f6cd41f5f5ab7ea73a9564d956f514d1d6b5afa07c67980c9523bfa8.jpg"
+    let smallURL = "https://img.marinas.com/v2/608f157042d37bbb5627ad701796eb60125b959cbdaf568be9ada8010a2bb2a9.jpg"
+    var images: PointImages!
 
     private var dataConverter: DataConverter!
     private var subscribers = [AnyCancellable]()
 
     override func setUpWithError() throws {
+        images = PointImages(data: [PointImage(resource: "Resource", thumbnailUrl: thumbnailURL, smallUrl: smallURL)])
         dataConverter = DataConverter()
     }
 
@@ -24,7 +28,7 @@ class DataConverterTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Successfully Decodes")
         guard let data = FakeJSONLoader.loadFile(for: "FakePointData") else { XCTFail("Unable load mock data");return }
 
-        let expected = Point(id: "95cz", name: "Baltimore Yacht Basin", kind: .marina, iconURL: iconURL)
+        let expected = Point(id: "95cz", name: "Baltimore Yacht Basin", kind: .marina, iconURL: iconURL, images: images)
 
         dataConverter.decode(data)
             .receive(on: DispatchQueue.main)

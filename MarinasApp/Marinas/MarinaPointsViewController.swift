@@ -94,12 +94,9 @@ extension MarinaPointsViewController {
 
             // Configure content
             content.text = point.name
-            
-            // TODO: Figure out how to load an SVG from URL
-//            let iconURL = point.iconURL ?? "https://picsum.photos/200"
-            let placeHolderImageURL = "https://picsum.photos/seed/picsum/200"
+            let placeHolderImageURL = "https://picsum.photos/id/1025/200/300"
             let imageView = UIImageView()
-            imageView.sd_setImage(with: URL(string: placeHolderImageURL), placeholderImage: UIImage(named: placeHolderImageURL)) { (image, error, imageCacheType, imageUrl) in
+            imageView.sd_setImage(with: URL(string: point.images.data.first?.thumbnailUrl ?? placeHolderImageURL), placeholderImage: UIImage(named: placeHolderImageURL)) { (image, error, imageCacheType, imageUrl) in
                 content.image = imageView.image
                 content.secondaryText = point.kind.rawValue
                 cell.contentConfiguration = content

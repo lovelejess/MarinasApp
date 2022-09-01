@@ -27,17 +27,35 @@ enum Kind: String, Codable, CaseIterable {
     }
 }
 
+struct PointImage: Codable, Hashable {
+    let resource: String
+    let thumbnailUrl: String
+    let smallUrl: String
+    
+    enum CodingKeys: String, CodingKey {
+        case resource
+        case thumbnailUrl = "thumbnail_url"
+        case smallUrl = "small_url"
+    }
+}
+
+struct PointImages: Codable, Hashable {
+    let data: [PointImage]
+}
+
 struct Point: Codable, Hashable {
     let id: String
     let name: String?
     let kind: Kind
     let iconURL: String?
+    let images: PointImages
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case kind
         case iconURL = "icon_url"
+        case images
     }
 
     func hash(into hasher: inout Hasher) {

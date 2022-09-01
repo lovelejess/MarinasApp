@@ -29,7 +29,7 @@ class MarinasFetcher: MarinasFetcherable {
 
     func search(for query: String) -> AnyPublisher<PointSearchResults, Error> {
         // TODO: User actual query - right now it returns ALL search results
-        let urlRequest = URLRequest(url: MarinasFetcher.Endpoints.search.url)
+        let urlRequest = URLRequest(url: MarinasFetcher.Endpoints.search(queryText: query).url)
         return networkService.decodableDataTaskPublisher(with: urlRequest)
     }
 
@@ -47,7 +47,7 @@ extension MarinasFetcher {
         private static var clientIdQuery = URLQueryItem(name: "access_token", value: accessToken)
 
         case points(id: String)
-        case search
+        case search(queryText: String)
 
         private var path: String {
             switch self {
@@ -64,11 +64,12 @@ extension MarinasFetcher {
                 urlComponents.host = Endpoints.host
                 urlComponents.path = path
                 urlComponents.queryItems = [ Endpoints.clientIdQuery ]
-            case .search:
+            case .search(let queryText):
                 urlComponents = URLComponents()
                 urlComponents.host = Endpoints.host
                 urlComponents.path = path
-                urlComponents.queryItems = [ Endpoints.clientIdQuery ]
+                let query = URLQueryItem(name: "query", value: queryText)
+                urlComponents.queryItems = [ Endpoints.clientIdQuery, query ]
             }
             urlComponents.scheme = Endpoints.scheme
             return urlComponents.url!

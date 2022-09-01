@@ -12,8 +12,17 @@
     },
     "images": {
         "resource": "list",
-        "data": [],
-        "total_count": 0
+        "data": [
+            {
+                "resource": "image",
+                "thumbnail_url": "https://img.marinas.com/v2/21a35907f6cd41f5f5ab7ea73a9564d956f514d1d6b5afa07c67980c9523bfa8.jpg",
+                "small_url": "https://img.marinas.com/v2/608f157042d37bbb5627ad701796eb60125b959cbdaf568be9ada8010a2bb2a9.jpg",
+                "medium_url": "https://img.marinas.com/v2/20c0be88a84820f5126ef3ee569ce14a173ad58f94b635dbf4996fa188d05fff.jpg",
+                "banner_url": "https://img.marinas.com/v2/d67c1e93f7fba23af6c7e0fa447b8b234f9d13a09f873dfc326ae84a0bd4f398.jpg",
+                "full_url": "https://img.marinas.com/v2/1458f8faa3852aa302415e4f2b2a698c8d14ab21505858a73e397dae420a067b.jpg"
+            }
+        ],
+        "total_count": 7
     },
     "web_url": "https://marinas.com/view/marina/95cz_Baltimore_Yacht_Basin_Baltimore_MD_United_States",
     "api_url": "https://api.marinas.com/v1/marinas/95cz",

@@ -38,9 +38,9 @@ class MarinasFetcherTests: XCTestCase {
     func test_GETSearchEndpoint_returnsCorrectURL() throws {
         let expectedURL = "https://api.marinas.com/v1/points/search"
         let expectedComponents = try XCTUnwrap(URLComponents(string: expectedURL))
-        let expectedQueryItems = [URLQueryItem(name: "access_token", value: "cPEQZFRWsBNZBV3YNi1T")]
+        let expectedQueryItems = [URLQueryItem(name: "access_token", value: "cPEQZFRWsBNZBV3YNi1T"), URLQueryItem(name: "query", value: "queryText")]
 
-        let actual = try XCTUnwrap(MarinasFetcher.Endpoints.search.url)
+        let actual = try XCTUnwrap(MarinasFetcher.Endpoints.search(queryText: "queryText").url)
         let actualComponents = try XCTUnwrap(URLComponents(url: actual, resolvingAgainstBaseURL: true))
         let actualQueryItems = actualComponents.queryItems
 
