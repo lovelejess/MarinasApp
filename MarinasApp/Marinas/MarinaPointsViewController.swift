@@ -168,7 +168,8 @@ extension MarinaPointsViewController: UISearchResultsUpdating {
 
 // MARK: UISearchBarDelegate
 extension MarinaPointsViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-
-  }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        let snapshot = self.getUpdatedSnapshot(with: [])
+        self.dataSource.apply(snapshot, animatingDifferences: false)
+    }
 }
