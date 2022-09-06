@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window?.makeKeyAndVisible()
         let coordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds), windowScene: windowScene)
-        coordinator.navigate(to: .rootTabBar(.marinas(.home)))
+        coordinator.navigate(to: .rootTabBar(.searchMarinas(.main)))
 
     }
 

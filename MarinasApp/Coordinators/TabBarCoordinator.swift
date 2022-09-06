@@ -23,10 +23,12 @@ class TabBarCoordinator: Coordinatable {
 
         if case Route.rootTabBar(let tabBarRoute) = route {
             switch tabBarRoute {
-            case .marinas(_):
+            case .searchMarinas(.main):
                 let marinasCoordinator = childCoordinators.first(where: { $0 is MarinasCoordinator })
                 tabBarController.selectedViewController = marinasCoordinator?.rootViewController
                 marinasCoordinator?.navigate(to: route)
+            case .searchMarinas(.point(point: _)):
+                return
             }
         }
     }
@@ -46,7 +48,7 @@ class TabBarCoordinator: Coordinatable {
 
             let marinasCoordinator = MarinasCoordinator()
             marinasCoordinator.parentCoordinator = self
-            marinasCoordinator.navigate(to: .rootTabBar(.marinas(.home)))
+            marinasCoordinator.navigate(to: .rootTabBar(.searchMarinas(.main)))
 
             childCoordinators = [marinasCoordinator]
 
@@ -59,7 +61,7 @@ class TabBarCoordinator: Coordinatable {
             rootViewController = tabBarViewController
 
             switch route {
-            case .rootTabBar(.marinas(_)):
+            case .rootTabBar(.searchMarinas(_)):
                 tabBarViewController.selectedViewController = marinasCoordinator.rootViewController
             }
         }

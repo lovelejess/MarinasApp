@@ -60,7 +60,7 @@ class MarinaPointsViewController: UIViewController {
         }, receiveValue: { [weak self] point in
             guard let self = self else { return }
             let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl)
-            self.coordinator?.navigate(to: .rootTabBar(.marinas(.point(point: pointDetails))))
+            self.coordinator?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
           })
         .store(in: &subscribers)
     }

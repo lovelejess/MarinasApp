@@ -19,9 +19,9 @@ class MarinasCoordinator: Coordinatable {
 
     func navigate(to route: Route) {
         switch route {
-        case .rootTabBar(.marinas(.home)):
+        case .rootTabBar(.searchMarinas(.main)):
             navigateToMarinaSearch()
-        case .rootTabBar(.marinas(.point(let details))):
+        case .rootTabBar(.searchMarinas(.point(let details))):
             navigateToPoint(for: details)
         }
     }

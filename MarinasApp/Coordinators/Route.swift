@@ -11,11 +11,11 @@ enum Route: Equatable {
     case rootTabBar(TabBarRoute)
 
     enum TabBarRoute: Equatable {
-        case marinas (HomeRoute)
+        case searchMarinas (MarinasSearchRoute)
     }
 
-    enum HomeRoute: Equatable {
-        case home
+    enum MarinasSearchRoute: Equatable {
+        case main
         case point(point: PointDetails)
     }
 }
