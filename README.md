@@ -5,14 +5,19 @@
 
 https://trello.com/b/G51XCUOi/marinas-sample-app
 
-1. Allow the user to enter a search term (WIP)
-2. Fetch related ****Points from the [Marinas.com API](https://marinas.com/developers) (WIP)
-3. Display results on a map or in a list (or both if you’re feeling adventurous!) (WIP)
+1. Allow the user to enter a search term via a query
+2. Fetch related Points from the [Marinas.com API](https://marinas.com/developers)
+3. Display image and name in a list
+
+
+## Upcoming
+1. Update a more robust search and user experience
+2. Display more information with search results such as navigating to web view
+3. Error handling!
 
 ## Demo
 
-Coming Soon!
-
+![Demo](demo.gif)
 
 ## Requirements
 
