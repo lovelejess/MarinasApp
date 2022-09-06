@@ -59,7 +59,7 @@ class MarinaPointsViewController: UIViewController {
             }
         }, receiveValue: { [weak self] point in
             guard let self = self else { return }
-            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl)
+            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind)
             self.coordinator?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
           })
         .store(in: &subscribers)
@@ -113,7 +113,7 @@ extension MarinaPointsViewController {
             let imageView = UIImageView()
             imageView.sd_setImage(with: URL(string: point.images.data.first?.thumbnailUrl ?? placeHolderImageURL), placeholderImage: UIImage(named: placeHolderImageURL)) { (image, error, imageCacheType, imageUrl) in
                 content.image = imageView.image
-                content.secondaryText = point.kind.rawValue
+                content.secondaryText = point.kind?.rawValue
                 cell.contentConfiguration = content
             }
         }

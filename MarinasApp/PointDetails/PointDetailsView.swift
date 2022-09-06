@@ -36,6 +36,14 @@ class PointDetailsView: UIView {
         return label
      }()
     
+    lazy var kind: UILabel = {
+        let label = UILabel()
+        label.text = "Kind: " + (viewModel?.getName() ?? "N/A")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+     }()
+
     lazy var webButton: UIButton = {
         let button = UIButton()
         button.setTitle("See More Info", for: .normal )
@@ -47,18 +55,18 @@ class PointDetailsView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 16
+        stackView.distribution = .fill
+        stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     lazy var detailStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.alignment = .leading
-        stackView.spacing = 16
-        stackView.distribution = .fillProportionally
+        stackView.spacing = 4
+        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -70,6 +78,7 @@ class PointDetailsView: UIView {
         mainStackView.addArrangedSubview(imageView)
         mainStackView.addArrangedSubview(detailStackView)
         detailStackView.addArrangedSubview(name)
+        detailStackView.addArrangedSubview(kind)
 
         setImageLayoutConstraints()
     }
@@ -84,6 +93,7 @@ class PointDetailsView: UIView {
     
     private func configureUIDetails() {
         name.text = viewModel?.getName() ?? "N/A"
+        kind.text = "Kind: " + (viewModel?.getKind()?.rawValue ?? "N/A")
         let imageName = viewModel?.getImageName()
         imageView.sd_setImage(with: URL(string: imageName ?? placeHolderImageURL), placeholderImage: UIImage(named: placeHolderImageURL)) { [weak self] (image, error, imageCacheType, imageUrl) in
             guard let self = self else { return }

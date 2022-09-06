@@ -24,5 +24,9 @@ class PointDetailsViewModel {
     func getImageName() -> String? {
         return point.image
     }
+    
+    func getKind() -> Kind? {
+        return point.kind
+    }
 
 }
