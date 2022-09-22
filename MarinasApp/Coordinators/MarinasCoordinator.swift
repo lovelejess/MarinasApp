@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 class MarinasCoordinator: Coordinatable {
     var parentCoordinator: Coordinatable?
@@ -23,6 +24,8 @@ class MarinasCoordinator: Coordinatable {
             navigateToMarinaSearch()
         case .rootTabBar(.searchMarinas(.point(let details))):
             navigateToPoint(for: details)
+        case .rootTabBar(.searchMarinas(.pointURL(via: let url))):
+            navigateToWeb(via: url)
         }
     }
 
@@ -50,9 +53,16 @@ class MarinasCoordinator: Coordinatable {
             let pointDetailsViewController = PointDetailsViewController()
             let networkService = NetworkService(urlSession: .shared)
             let marinasFetcher = MarinasFetcher(networkService: networkService)
-            pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: details)
-            pointDetailsViewController.coordinator = self
+            pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: details, coordinator: self)
             navigationController.pushViewController(pointDetailsViewController, animated: true)
         }
+    }
+
+    private func navigateToWeb(via url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        navigationController.present(safariVC, animated: true)
+//        if let _ = rootViewController as? PointDetailsViewController {
+//            navigationController.present(safariVC, animated: true)
+//        }
     }
 }

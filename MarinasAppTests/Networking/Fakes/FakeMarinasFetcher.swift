@@ -26,7 +26,7 @@ class FakeMarinasFetcher: MarinasFetcherable {
     ///
     /// - Returns: A publisher of type `<Point, Error>` used to return `Point`
     func point(for id: String) -> AnyPublisher<Point, Error> {
-        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com", images: images)
+        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com", images: images, url: "https://weburl.com")
         return Just(point)
             .setFailureType(to: Error.self)
             .receive(on: DispatchQueue.main)
@@ -37,7 +37,7 @@ class FakeMarinasFetcher: MarinasFetcherable {
     ///
     /// - Returns: A publisher of type `<PointSearchResults, Error>` used to return `PointSearchResults`
     func search(for query: String) -> AnyPublisher<PointSearchResults, Error> {
-        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com", images: images)
+        let point = Point(id: "1234", name: "Fake Harbor", kind: .harbor, iconURL: "https://fakeurl.com", images: images, url: "https://weburl.com")
         let pointSearchResults = PointSearchResults(data: [point])
         return Just(pointSearchResults)
             .setFailureType(to: Error.self)

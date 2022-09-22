@@ -29,6 +29,8 @@ class TabBarCoordinator: Coordinatable {
                 marinasCoordinator?.navigate(to: route)
             case .searchMarinas(.point(point: _)):
                 return
+            case .searchMarinas(.pointURL(via: _)):
+                return
             }
         }
     }

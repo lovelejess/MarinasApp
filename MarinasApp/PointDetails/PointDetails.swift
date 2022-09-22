@@ -11,4 +11,5 @@ struct PointDetails: Equatable {
     var name: String
     var image: String?
     var kind: Kind?
+    var url: URL?
 }

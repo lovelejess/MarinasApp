@@ -45,7 +45,7 @@ class PointDetailsView: UIView {
      }()
 
     lazy var webButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("See More Info", for: .normal )
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -79,6 +79,7 @@ class PointDetailsView: UIView {
         mainStackView.addArrangedSubview(detailStackView)
         detailStackView.addArrangedSubview(name)
         detailStackView.addArrangedSubview(kind)
+        detailStackView.addArrangedSubview(webButton)
 
         setImageLayoutConstraints()
     }
@@ -94,6 +95,8 @@ class PointDetailsView: UIView {
     private func configureUIDetails() {
         name.text = viewModel?.getName() ?? "N/A"
         kind.text = "Kind: " + (viewModel?.getKind()?.rawValue ?? "N/A")
+        webButton.addTarget(self, action: #selector(redirectToWeb), for: .touchUpInside)
+
         let imageName = viewModel?.getImageName()
         imageView.sd_setImage(with: URL(string: imageName ?? placeHolderImageURL), placeholderImage: UIImage(named: placeHolderImageURL)) { [weak self] (image, error, imageCacheType, imageUrl) in
             guard let self = self else { return }
@@ -105,5 +108,10 @@ class PointDetailsView: UIView {
         mainStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 12).isActive = true
         mainStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 12).isActive = true
         mainStackView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+    }
+
+    @objc
+    private func redirectToWeb() {
+        viewModel?.redirectToWeb()
     }
 }

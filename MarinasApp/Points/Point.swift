@@ -49,6 +49,7 @@ struct Point: Codable, Hashable {
     let kind: Kind?
     let iconURL: String
     let images: PointImages
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -56,6 +57,7 @@ struct Point: Codable, Hashable {
         case kind
         case iconURL = "icon_url"
         case images
+        case url = "web_url"
     }
 
     func hash(into hasher: inout Hasher) {

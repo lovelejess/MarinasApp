@@ -17,7 +17,7 @@ class MarinaPointsViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
     private var subscribers = [AnyCancellable]()
-    var coordinator: MarinasCoordinator?
+    weak var coordinator: MarinasCoordinator?
     var viewModel: MarinasPointViewModel!
     var marinasCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Point>!
@@ -59,7 +59,11 @@ class MarinaPointsViewController: UIViewController {
             }
         }, receiveValue: { [weak self] point in
             guard let self = self else { return }
-            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind)
+            var url: URL? = nil
+            if let urlString = point.url {
+                url = URL(string: urlString)
+            }
+            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
             self.coordinator?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
           })
         .store(in: &subscribers)

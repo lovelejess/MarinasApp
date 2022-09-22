@@ -70,6 +70,7 @@ class MarinasPointViewModel {
 
     private func subscribeToSearchText() {
         searchText
+        // the execution of closures scheduled on the main run loop will be delayed for execution whenever user interaction occurs.
         .debounce(for: .milliseconds(800), scheduler: RunLoop.main)
         .removeDuplicates()
         .compactMap{ $0 }

@@ -17,5 +17,6 @@ enum Route: Equatable {
     enum MarinasSearchRoute: Equatable {
         case main
         case point(point: PointDetails)
+        case pointURL(via: URL)
     }
 }

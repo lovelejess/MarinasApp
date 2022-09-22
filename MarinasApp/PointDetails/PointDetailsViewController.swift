@@ -7,6 +7,7 @@
 
 import Combine
 import UIKit
+import SafariServices
 
 class PointDetailsViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class PointDetailsViewController: UIViewController {
     
     lazy var detailsView: PointDetailsView = {
         let detailsView = PointDetailsView()
+        detailsView.viewModel = viewModel
         detailsView.backgroundColor = UIColor.white
         detailsView.translatesAutoresizingMaskIntoConstraints = false
         return detailsView
@@ -24,7 +26,6 @@ class PointDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.getName()
-        detailsView.viewModel = viewModel
         view.addSubview(detailsView)
         setLayoutForOfferDetailView()
     }
@@ -36,3 +37,5 @@ class PointDetailsViewController: UIViewController {
         detailsView.heightAnchor.constraint(equalToConstant: 424).isActive = true
     }
 }
+
+extension PointDetailsViewController: SFSafariViewControllerDelegate {}
