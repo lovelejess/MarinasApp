@@ -11,7 +11,14 @@ import UIKit
 class TabBarCoordinator: Coordinatable {
     var parentCoordinator: Coordinatable?
     var childCoordinators: [Coordinatable] = []
-    var rootViewController = UIViewController()
+    var rootViewController: UITabBarController
+
+    init() {
+        rootViewController = UITabBarController()
+        rootViewController.view.backgroundColor = .systemBackground
+        UITabBar.appearance().barTintColor = .systemBackground
+        rootViewController.tabBar.tintColor = .label
+    }
 
     func navigate(to route: Route) {
         if childCoordinators.count == 0 {
@@ -19,13 +26,10 @@ class TabBarCoordinator: Coordinatable {
             return
         }
 
-        guard let tabBarController = rootViewController as? UITabBarController else { return }
-
         if case Route.rootTabBar(let tabBarRoute) = route {
             switch tabBarRoute {
             case .searchMarinas(.main):
                 let marinasCoordinator = childCoordinators.first(where: { $0 is MarinasCoordinator })
-                tabBarController.selectedViewController = marinasCoordinator?.rootViewController
                 marinasCoordinator?.navigate(to: route)
             case .searchMarinas(.point(point: _)):
                 return
@@ -35,37 +39,22 @@ class TabBarCoordinator: Coordinatable {
         }
     }
 
-    func navigateBack(data: Any?) {
-        // N/A
-    }
-
     private func setupTabBar(_ route: Route) {
         if case Route.rootTabBar = route {
-            let tabBarViewController = TabBarController()
-            tabBarViewController.coordinator = self
-
-            tabBarViewController.view.backgroundColor = .systemBackground
-            UITabBar.appearance().barTintColor = .systemBackground
-            tabBarViewController.tabBar.tintColor = .label
-
             let marinasCoordinator = MarinasCoordinator()
-            marinasCoordinator.parentCoordinator = self
             marinasCoordinator.navigate(to: .rootTabBar(.searchMarinas(.main)))
 
-            childCoordinators = [marinasCoordinator]
+            let marinasViewController = marinasCoordinator.rootViewController
+            setup(vc: marinasViewController, title: "Home", imageName: "house", selectedImageName: "house.fill")
 
-            let homeNavController = marinasCoordinator.navigationController
-            homeNavController.tabBarItem.title = "Home"
-            homeNavController.tabBarItem.image = UIImage(systemName: "house")!
-
-            tabBarViewController.viewControllers = [homeNavController]
-
-            rootViewController = tabBarViewController
-
-            switch route {
-            case .rootTabBar(.searchMarinas(_)):
-                tabBarViewController.selectedViewController = marinasCoordinator.rootViewController
-            }
+            rootViewController.viewControllers = [marinasViewController]
         }
+    }
+
+    private func setup(vc: UIViewController, title: String, imageName: String, selectedImageName: String) {
+        let defaultImage = UIImage(systemName: imageName)
+        let selectedImage = UIImage(systemName: selectedImageName)
+        let tabBarItem = UITabBarItem(title: title, image: defaultImage, selectedImage: selectedImage)
+        vc.tabBarItem = tabBarItem
     }
 }

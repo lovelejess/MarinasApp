@@ -9,16 +9,11 @@ import Foundation
 import UIKit
 
 class AppCoordinator: Coordinatable {
-    var parentCoordinator: Coordinatable?
     var childCoordinators: [Coordinatable] = []
-    var rootViewController = UIViewController()
-    var window: UIWindow?
+    let window: UIWindow
 
-    convenience init(window: UIWindow, windowScene: UIWindowScene) {
-        self.init()
+    init(window: UIWindow) {
         self.window = window
-        self.window?.makeKeyAndVisible()
-        self.window?.windowScene = windowScene
     }
 
     func navigate(to route: Route) {
@@ -28,25 +23,10 @@ class AppCoordinator: Coordinatable {
         }
     }
 
-    func navigateBack(data: Any?) {
-        // N/A
-    }
-
     fileprivate func handleRoot(_ route: Route) {
-        if let tabBarCoordinator = childCoordinators.first(where: { $0 is TabBarCoordinator }) as? TabBarCoordinator, let window = self.window {
-            tabBarCoordinator.navigate(to: route)
-            window.rootViewController = tabBarCoordinator.rootViewController
-        } else {
-            if let window = window {
-                let tabBarCoordinator = TabBarCoordinator()
-                tabBarCoordinator.parentCoordinator = self
-                childCoordinators.append(tabBarCoordinator)
-                tabBarCoordinator.navigate(to: route)
-                window.rootViewController = tabBarCoordinator.rootViewController
-                if let rootViewController = window.rootViewController {
-                    self.rootViewController = rootViewController
-                }
-            }
-        }
+        let tabBarCoordinator = TabBarCoordinator()
+        tabBarCoordinator.navigate(to: route)
+        childCoordinators.append(tabBarCoordinator)
+        window.rootViewController = tabBarCoordinator.rootViewController
     }
 }
