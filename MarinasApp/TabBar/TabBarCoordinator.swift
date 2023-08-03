@@ -15,8 +15,6 @@ class TabBarCoordinator: Coordinatable {
 
     init() {
         rootViewController = UITabBarController()
-        rootViewController.view.backgroundColor = .systemBackground
-        UITabBar.appearance().barTintColor = .systemBackground
         rootViewController.tabBar.tintColor = .label
     }
 
