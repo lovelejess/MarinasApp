@@ -10,13 +10,18 @@ import Foundation
 enum Route: Equatable {
     case rootTabBar(TabBarRoute)
 
+    // All the navigational routes for the Tabbar
     enum TabBarRoute: Equatable {
         case searchMarinas (MarinasSearchRoute)
     }
 
+    // All the navigational routes for the Marinas Search View
     enum MarinasSearchRoute: Equatable {
-        case main
-        case point(point: PointDetails)
-        case pointURL(via: URL)
+        case details(point: PointDetails)
+    }
+
+    // All the navigational routes for the PointDetails
+    enum PointDetailsRoute: Equatable {
+        case webView(via: URL)
     }
 }

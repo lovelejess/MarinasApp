@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MarinasSearchCoordinatorDelegate: AnyObject {
-    func navigate(to route: Route)
+    func navigate(to route: Route.MarinasSearchRoute)
 }

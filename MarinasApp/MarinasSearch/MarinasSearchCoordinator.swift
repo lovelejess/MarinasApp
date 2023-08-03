@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SafariServices
 
 class MarinasSearchCoordinator: Coordinatable {
     var childCoordinators: [Coordinatable] = []
@@ -15,6 +14,10 @@ class MarinasSearchCoordinator: Coordinatable {
 
     init() {
         rootViewController = UINavigationController()
+    }
+
+    func start() {
+        navigateToMarinaSearch()
     }
 
     private func navigateToMarinaSearch() {
@@ -33,28 +36,17 @@ class MarinasSearchCoordinator: Coordinatable {
     }
 
     private func navigateToPoint(for details: PointDetails) {
-        let pointDetailsViewController = PointDetailsViewController()
-        let networkService = NetworkService(urlSession: .shared)
-        let marinasFetcher = MarinasFetcher(networkService: networkService)
-        pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: details)
-        rootViewController.pushViewController(pointDetailsViewController, animated: true)
-    }
-
-    private func navigateToWeb(via url: URL) {
-        let safariVC = SFSafariViewController(url: url)
-        rootViewController.present(safariVC, animated: true)
+        let pointDetailsCoordinator = PointDetailsCoordinator(rootViewController: rootViewController)
+        pointDetailsCoordinator.start(for: details)
+        childCoordinators.append(pointDetailsCoordinator)
     }
 }
 
 extension MarinasSearchCoordinator: MarinasSearchCoordinatorDelegate {
-    func navigate(to route: Route) {
+    func navigate(to route: Route.MarinasSearchRoute) {
         switch route {
-        case .rootTabBar(.searchMarinas(.main)):
-            navigateToMarinaSearch()
-        case .rootTabBar(.searchMarinas(.point(let details))):
+        case .details(let details):
             navigateToPoint(for: details)
-        case .rootTabBar(.searchMarinas(.pointURL(via: let url))):
-            navigateToWeb(via: url)
         }
     }
 }

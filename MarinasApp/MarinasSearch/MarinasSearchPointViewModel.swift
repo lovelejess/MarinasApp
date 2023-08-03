@@ -69,7 +69,7 @@ class MarinasSearchViewModel {
             }
             let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
             self.pointCompletion.send(true) // TODO: Success Handling
-            self.coordinatorDelegate?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
+            self.coordinatorDelegate?.navigate(to: .details(point: pointDetails))
         })
         .store(in: &subscribers)
     }

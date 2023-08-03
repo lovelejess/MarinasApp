@@ -11,6 +11,7 @@ class PointDetailsViewModel {
 
     private var marinasFetcher: MarinasFetcherable!
     private var point: PointDetails
+    weak var coordinatorDelegate: PointDetailsCoordinatorDelegate?
 
     init(marinasFetcher: MarinasFetcherable, point: PointDetails) {
         self.marinasFetcher = marinasFetcher
