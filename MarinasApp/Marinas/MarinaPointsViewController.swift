@@ -48,25 +48,25 @@ class MarinaPointsViewController: UIViewController {
           })
         .store(in: &subscribers)
 
-        viewModel.point
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { value in
-            switch value {
-            case .failure:
-                print("Failure")
-            case .finished:
-                print("Finished")
-            }
-        }, receiveValue: { [weak self] point in
-            guard let self = self else { return }
-            var url: URL? = nil
-            if let urlString = point.url {
-                url = URL(string: urlString)
-            }
-            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
-            self.coordinator?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
-          })
-        .store(in: &subscribers)
+//        viewModel.point
+//        .receive(on: DispatchQueue.main)
+//        .sink(receiveCompletion: { value in
+//            switch value {
+//            case .failure:
+//                print("Failure")
+//            case .finished:
+//                print("Finished")
+//            }
+//        }, receiveValue: { [weak self] point in
+//            guard let self = self else { return }
+//            var url: URL? = nil
+//            if let urlString = point.url {
+//                url = URL(string: urlString)
+//            }
+//            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
+//            self.coordinator?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
+//          })
+//        .store(in: &subscribers)
     }
 
     private func configureSearchController() {
@@ -156,7 +156,7 @@ extension MarinaPointsViewController {
 extension MarinaPointsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let point = viewModel.points[indexPath.row]
-        viewModel.getPointInfo(for: point.id)
+        viewModel.didSelectPoint(for: point.id)
         collectionView.deselectItem(at: indexPath, animated: false)
     }
 }

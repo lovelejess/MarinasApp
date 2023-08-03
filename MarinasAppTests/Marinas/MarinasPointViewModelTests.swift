@@ -47,7 +47,7 @@ class MarinasPointViewModelTests: XCTestCase {
 
           .store(in: &subscribers)
 
-        viewModel.getPointInfo(for: id)
+        viewModel.didSelectPoint(for: id)
 
         wait(for: [expectation], timeout: 0.5)
     }

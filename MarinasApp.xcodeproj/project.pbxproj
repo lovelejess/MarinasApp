@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		168114BB2A7C0FE80068B482 /* MarinasCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168114BA2A7C0FE80068B482 /* MarinasCoordinatorDelegate.swift */; };
 		1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */; };
 		1698F9D428B6F6ED00B0DFF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */; };
 		1698F9D628B6F6ED00B0DFF5 /* MarinaPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		168114BA2A7C0FE80068B482 /* MarinasCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		1698F9CE28B6F6ED00B0DFF5 /* MarinasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarinasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				1698F9D528B6F6ED00B0DFF5 /* MarinaPointsViewController.swift */,
 				1698FA4328BC437100B0DFF5 /* MarinasPointViewModel.swift */,
+				168114BA2A7C0FE80068B482 /* MarinasCoordinatorDelegate.swift */,
 			);
 			path = Marinas;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				1698FA5028C0443900B0DFF5 /* PointDetailsViewModel.swift in Sources */,
 				1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */,
 				1698FA1528B6FCE700B0DFF5 /* MarinasCoordinator.swift in Sources */,
+				168114BB2A7C0FE80068B482 /* MarinasCoordinatorDelegate.swift in Sources */,
 				1698FA1928B6FCFC00B0DFF5 /* Coordinatable.swift in Sources */,
 				1698F9D428B6F6ED00B0DFF5 /* SceneDelegate.swift in Sources */,
 				1698FA1D28B6FD0900B0DFF5 /* TabBarCoordinator.swift in Sources */,

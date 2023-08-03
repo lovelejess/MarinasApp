@@ -16,6 +16,7 @@ class MarinasPointViewModel {
     @Published
     var points: [Point] = []
     
+    weak var coordinatorDelegate: MarinasCoordinatorDelegate?
     var point = PassthroughSubject<Point, Error>()
     var searchText = PassthroughSubject<String, Never>()
 
@@ -48,8 +49,9 @@ class MarinasPointViewModel {
     /// Retrieves points from the Marinas API.
     /// Once values are retrieved, it publishes the values via `points`
     ///
-    func getPointInfo(for id: String = "95cz") {
+    func didSelectPoint(for id: String = "95cz") {
         marinasFetcher.point(for: id)
+        .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: { [weak self] value in
             guard let self = self else { return }
             switch value {
@@ -59,11 +61,14 @@ class MarinasPointViewModel {
             case .finished:
                 return
             }
-        }, receiveValue: { [weak self] response in
+        }, receiveValue: { [weak self] point in
             guard let self = self else { return }
-
-            self.point.send(response)
-
+            var url: URL? = nil
+            if let urlString = point.url {
+                url = URL(string: urlString)
+            }
+            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
+            self.coordinatorDelegate?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
         })
         .store(in: &subscribers)
     }
