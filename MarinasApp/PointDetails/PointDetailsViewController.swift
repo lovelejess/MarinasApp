@@ -12,7 +12,7 @@ import SafariServices
 class PointDetailsViewController: UIViewController {
     
     private var subscribers = [AnyCancellable]()
-    var coordinator: MarinasCoordinator?
+    var coordinator: MarinasSearchCoordinator?
     var viewModel: PointDetailsViewModel!
     
     lazy var detailsView: PointDetailsView = {

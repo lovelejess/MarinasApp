@@ -10,6 +10,4 @@ import UIKit
 
 protocol Coordinatable: AnyObject {
     var childCoordinators: [Coordinatable] { get }
-
-    func navigate(to route: Route)
 }

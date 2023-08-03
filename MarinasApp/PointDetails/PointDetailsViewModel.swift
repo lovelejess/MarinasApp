@@ -10,13 +10,11 @@ import Foundation
 class PointDetailsViewModel {
 
     private var marinasFetcher: MarinasFetcherable!
-    private var coordinator: Coordinatable?
     private var point: PointDetails
 
-    init(marinasFetcher: MarinasFetcherable, point: PointDetails, coordinator: Coordinatable?) {
+    init(marinasFetcher: MarinasFetcherable, point: PointDetails) {
         self.marinasFetcher = marinasFetcher
         self.point = point
-        self.coordinator = coordinator
     }
 
     func getName() -> String {
@@ -35,9 +33,10 @@ class PointDetailsViewModel {
         return point.url
     }
 
+    // TODO: JESS this should use coordinator delegate
     func redirectToWeb() {
-        guard let url = point.url else { return }
-        coordinator?.navigate(to: .rootTabBar(.searchMarinas(.pointURL(via: url))))
+//        guard let url = point.url else { return }
+//        coordinator?.navigate(to: .rootTabBar(.searchMarinas(.pointURL(via: url))))
     }
 
 }

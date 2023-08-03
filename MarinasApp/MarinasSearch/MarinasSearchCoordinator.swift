@@ -1,5 +1,5 @@
 //
-//  MarinasCoordinator.swift
+//  MarinasSearchCoordinator.swift
 //  MarinasApp
 //
 //  Created by Jess Lê on 8/24/22.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SafariServices
 
-class MarinasCoordinator: Coordinatable {
+class MarinasSearchCoordinator: Coordinatable {
     var childCoordinators: [Coordinatable] = []
     var rootViewController: UINavigationController
 
@@ -18,17 +18,17 @@ class MarinasCoordinator: Coordinatable {
     }
 
     private func navigateToMarinaSearch() {
-        if rootViewController.children.contains(where: { $0 is MarinaPointsViewController }) {
+        if rootViewController.children.contains(where: { $0 is MarinasSearchViewController }) {
             rootViewController.popToRootViewController(animated: true)
         } else {
-            let marinaPointsViewController = MarinaPointsViewController()
+            let marinasSearchViewController = MarinasSearchViewController()
             let networkService = NetworkService(urlSession: .shared)
             let marinasFetcher = MarinasFetcher(networkService: networkService)
-            let viewModel = MarinasPointViewModel(marinasFetcher: marinasFetcher)
+            let viewModel = MarinasSearchViewModel(marinasFetcher: marinasFetcher)
             viewModel.coordinatorDelegate = self
-            marinaPointsViewController.viewModel = viewModel
+            marinasSearchViewController.viewModel = viewModel
 
-            rootViewController.pushViewController(marinaPointsViewController, animated: true)
+            rootViewController.pushViewController(marinasSearchViewController, animated: true)
         }
     }
 
@@ -36,7 +36,7 @@ class MarinasCoordinator: Coordinatable {
         let pointDetailsViewController = PointDetailsViewController()
         let networkService = NetworkService(urlSession: .shared)
         let marinasFetcher = MarinasFetcher(networkService: networkService)
-        pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: details, coordinator: self)
+        pointDetailsViewController.viewModel = PointDetailsViewModel(marinasFetcher: marinasFetcher, point: details)
         rootViewController.pushViewController(pointDetailsViewController, animated: true)
     }
 
@@ -46,7 +46,7 @@ class MarinasCoordinator: Coordinatable {
     }
 }
 
-extension MarinasCoordinator: MarinasCoordinatorDelegate {
+extension MarinasSearchCoordinator: MarinasSearchCoordinatorDelegate {
     func navigate(to route: Route) {
         switch route {
         case .rootTabBar(.searchMarinas(.main)):

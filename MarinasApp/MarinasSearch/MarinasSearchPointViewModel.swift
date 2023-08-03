@@ -1,5 +1,5 @@
 //
-//  MarinasPointViewModel.swift
+//  MarinasSearchViewModel.swift
 //  MarinasApp
 //
 //  Created by Jess Lê on 8/28/22.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class MarinasPointViewModel {
+class MarinasSearchViewModel {
     
     private var marinasFetcher: MarinasFetcherable!
     private var subscribers = [AnyCancellable]()
@@ -16,8 +16,8 @@ class MarinasPointViewModel {
     @Published
     var points: [Point] = []
     
-    weak var coordinatorDelegate: MarinasCoordinatorDelegate?
-    var point = PassthroughSubject<Point, Error>()
+    weak var coordinatorDelegate: MarinasSearchCoordinatorDelegate?
+    var pointCompletion = PassthroughSubject<Bool, Error>() // TODO: FIX - how to handle error completion better
     var searchText = PassthroughSubject<String, Never>()
 
     init(marinasFetcher: MarinasFetcherable) {
@@ -57,7 +57,7 @@ class MarinasPointViewModel {
             switch value {
             case .failure:
                 // TODO: More Granular Error Handling
-                self.point.send(completion: .failure(NetworkError.parsing(description: "FIX ME")))
+                self.pointCompletion.send(completion: .failure(NetworkError.parsing(description: "FIX ME")))
             case .finished:
                 return
             }
@@ -68,6 +68,7 @@ class MarinasPointViewModel {
                 url = URL(string: urlString)
             }
             let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
+            self.pointCompletion.send(true) // TODO: Success Handling
             self.coordinatorDelegate?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
         })
         .store(in: &subscribers)

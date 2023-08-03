@@ -41,14 +41,14 @@ class TabBarCoordinator: Coordinatable {
 
     private func setupTabBar(_ route: Route) {
         if case Route.rootTabBar = route {
-            let marinasCoordinator = MarinasCoordinator()
-            marinasCoordinator.navigate(to: .rootTabBar(.searchMarinas(.main)))
-            childCoordinators.append(marinasCoordinator)
+            let marinasSearchCoordinator = MarinasSearchCoordinator()
+            marinasSearchCoordinator.navigate(to: .rootTabBar(.searchMarinas(.main)))
+            childCoordinators.append(marinasSearchCoordinator)
 
-            let marinasViewController = marinasCoordinator.rootViewController
-            setup(vc: marinasViewController, title: "Home", imageName: "house", selectedImageName: "house.fill")
+            let marinasSearchViewController = marinasSearchCoordinator.rootViewController
+            setup(vc: marinasSearchViewController, title: "Home", imageName: "house", selectedImageName: "house.fill")
 
-            rootViewController.viewControllers = [marinasViewController]
+            rootViewController.viewControllers = [marinasSearchViewController]
         }
     }
 

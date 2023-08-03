@@ -1,5 +1,5 @@
 //
-//  MarinaPointsViewController.swift
+//  MarinasSearchViewController.swift
 //  MarinasApp
 //
 //  Created by Jess Lê on 8/24/22.
@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import SDWebImage
 
-class MarinaPointsViewController: UIViewController {
+class MarinasSearchViewController: UIViewController {
 
     enum Section {
         case main
@@ -17,8 +17,7 @@ class MarinaPointsViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
     private var subscribers = [AnyCancellable]()
-    weak var coordinator: MarinasCoordinator?
-    var viewModel: MarinasPointViewModel!
+    var viewModel: MarinasSearchViewModel!
     var marinasCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Point>!
 
@@ -80,7 +79,7 @@ class MarinaPointsViewController: UIViewController {
 }
 
 // MARK: Datasource
-extension MarinaPointsViewController {
+extension MarinasSearchViewController {
     private func configureDataSource() {
         
         let cellRegistration = createPointsCellRegistration()
@@ -125,7 +124,7 @@ extension MarinaPointsViewController {
 }
 
 // MARK: Layouts
-extension MarinaPointsViewController {
+extension MarinasSearchViewController {
     private func configureCollectionView() {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureLayout())
         view.addSubview(collectionView)
@@ -153,7 +152,7 @@ extension MarinaPointsViewController {
 }
 
 // MARK: UICollectionViewDelegate
-extension MarinaPointsViewController: UICollectionViewDelegate {
+extension MarinasSearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let point = viewModel.points[indexPath.row]
         viewModel.didSelectPoint(for: point.id)
@@ -162,7 +161,7 @@ extension MarinaPointsViewController: UICollectionViewDelegate {
 }
 
 // MARK: UISearchResultsUpdating
-extension MarinaPointsViewController: UISearchResultsUpdating {
+extension MarinasSearchViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
       let searchBar = searchController.searchBar
       guard let query = searchBar.text, query.count > 1 else { return }
@@ -171,7 +170,7 @@ extension MarinaPointsViewController: UISearchResultsUpdating {
 }
 
 // MARK: UISearchBarDelegate
-extension MarinaPointsViewController: UISearchBarDelegate {
+extension MarinasSearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         let snapshot = self.getUpdatedSnapshot(with: [])
         self.dataSource.apply(snapshot, animatingDifferences: false)
