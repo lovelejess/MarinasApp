@@ -34,10 +34,8 @@ class PointDetailsViewModel {
         return point.url
     }
 
-    // TODO: JESS this should use coordinator delegate
     func redirectToWeb() {
-//        guard let url = point.url else { return }
-//        coordinator?.navigate(to: .rootTabBar(.searchMarinas(.pointURL(via: url))))
+        guard let url = point.url else { return }
+        coordinatorDelegate?.navigate(to: .webView(via: url))
     }
-
 }
