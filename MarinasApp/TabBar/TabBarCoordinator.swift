@@ -25,24 +25,6 @@ class TabBarCoordinator: Coordinatable {
         }
     }
 
-//    func navigate(to route: Route) {
-//        if case Route.rootTabBar(let tabBarRoute) = route {
-//            switch tabBarRoute {
-//            case .searchMarinas(.main): // If first time, initialize Tabbar
-//                if childCoordinators.count == 0 {
-//                    setupTabBar()
-//                    return
-//                } else { // Display the Marinas Search View Controller already in memory
-//                    guard let viewController = rootViewController.viewControllers,
-//                          let marinasViewController = viewController.first(where: { $0 is MarinasSearchViewController }) else { fatalError("MarinasSearchViewController was never instantiated")
-//                    }
-//
-//                    rootViewController.selectedViewController = marinasViewController
-//                }
-//            }
-//        }
-//    }
-
     private func setupTabBar() {
         let marinasSearchCoordinator = MarinasSearchCoordinator()
         marinasSearchCoordinator.start()

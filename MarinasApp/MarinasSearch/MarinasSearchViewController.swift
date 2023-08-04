@@ -15,18 +15,24 @@ class MarinasSearchViewController: UIViewController {
         case main
     }
 
-    let searchController = UISearchController(searchResultsController: nil)
     private var subscribers = [AnyCancellable]()
+
+    lazy var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        return controller
+    }()
+
+    lazy var dataSource: UICollectionViewDiffableDataSource<Section, Point> = {
+        return configureDataSource()
+    }()
+
     var viewModel: MarinasSearchViewModel!
     var marinasCollectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Point>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Marinas Home"
         configureSearchController()
         configureCollectionView()
-        configureDataSource()
         bindUIComponents()
     }
 
@@ -80,19 +86,20 @@ class MarinasSearchViewController: UIViewController {
 
 // MARK: Datasource
 extension MarinasSearchViewController {
-    private func configureDataSource() {
-        
+    private func configureDataSource() -> UICollectionViewDiffableDataSource<Section, Point> {
+
         let cellRegistration = createPointsCellRegistration()
 
-        dataSource = UICollectionViewDiffableDataSource<Section, Point>(collectionView: marinasCollectionView) {
+        let dataSource = UICollectionViewDiffableDataSource<Section, Point>(collectionView: marinasCollectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, identifier: Point) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
         }
 
         let snapshot = snapshotForInitialState()
         dataSource.apply(snapshot, animatingDifferences: false)
+        return dataSource
     }
-    
+
     private func snapshotForInitialState() -> NSDiffableDataSourceSnapshot<Section, Point> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Point>()
         snapshot.appendSections([Section.main])

@@ -11,36 +11,23 @@ import UIKit
 class MarinasSearchCoordinator: Coordinatable {
     var childCoordinators: [Coordinatable] = []
     var rootViewController: UINavigationController
+    var viewModel: MarinasSearchViewModel
+    var marinasSearchViewController: MarinasSearchViewController
 
     init() {
         rootViewController = UINavigationController()
+        let networkService = NetworkService(urlSession: .shared)
+        let marinasFetcher = MarinasFetcher(networkService: networkService)
+        viewModel = MarinasSearchViewModel(marinasFetcher: marinasFetcher)
+        marinasSearchViewController = MarinasSearchViewController()
+        marinasSearchViewController.viewModel = viewModel
+        viewModel.coordinatorDelegate = self
+        marinasSearchViewController.viewModel = viewModel
     }
 
     func start() {
-        let marinasSearchViewController = MarinasSearchViewController()
-        let networkService = NetworkService(urlSession: .shared)
-        let marinasFetcher = MarinasFetcher(networkService: networkService)
-        let viewModel = MarinasSearchViewModel(marinasFetcher: marinasFetcher)
-        viewModel.coordinatorDelegate = self
-        marinasSearchViewController.viewModel = viewModel
-
         rootViewController.setViewControllers([marinasSearchViewController], animated: false)
     }
-
-//    private func navigateToMarinaSearch() {
-//        if rootViewController.children.contains(where: { $0 is MarinasSearchViewController }) {
-//            rootViewController.popToRootViewController(animated: true)
-//        } else {
-//            let marinasSearchViewController = MarinasSearchViewController()
-//            let networkService = NetworkService(urlSession: .shared)
-//            let marinasFetcher = MarinasFetcher(networkService: networkService)
-//            let viewModel = MarinasSearchViewModel(marinasFetcher: marinasFetcher)
-//            viewModel.coordinatorDelegate = self
-//            marinasSearchViewController.viewModel = viewModel
-//
-//            rootViewController.setViewControllers([marinasSearchViewController], animated: false)
-//        }
-//    }
 
     private func navigateToPoint(for details: PointDetails) {
         let pointDetailsCoordinator = PointDetailsCoordinator(rootViewController: rootViewController)
