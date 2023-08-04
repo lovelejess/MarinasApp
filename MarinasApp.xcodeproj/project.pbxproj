@@ -13,7 +13,6 @@
 		1698F9D228B6F6ED00B0DFF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */; };
 		1698F9D428B6F6ED00B0DFF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */; };
 		1698F9D628B6F6ED00B0DFF5 /* MarinasSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9D528B6F6ED00B0DFF5 /* MarinasSearchViewController.swift */; };
-		1698F9D928B6F6ED00B0DFF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */; };
 		1698F9DB28B6F6EF00B0DFF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */; };
 		1698F9DE28B6F6EF00B0DFF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */; };
 		1698F9E928B6F6EF00B0DFF5 /* MarinasAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F9E828B6F6EF00B0DFF5 /* MarinasAppTests.swift */; };
@@ -74,7 +73,6 @@
 		1698F9D128B6F6ED00B0DFF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1698F9D528B6F6ED00B0DFF5 /* MarinasSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarinasSearchViewController.swift; sourceTree = "<group>"; };
-		1698F9D828B6F6ED00B0DFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1698F9DD28B6F6EF00B0DFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1698F9DF28B6F6EF00B0DFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				1698F9DA28B6F6EF00B0DFF5 /* Assets.xcassets */,
 				1698F9DF28B6F6EF00B0DFF5 /* Info.plist */,
 				1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */,
-				1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */,
 				1698F9D328B6F6ED00B0DFF5 /* SceneDelegate.swift */,
 			);
 			path = MarinasApp;
@@ -435,7 +432,6 @@
 			files = (
 				1698F9DE28B6F6EF00B0DFF5 /* LaunchScreen.storyboard in Resources */,
 				1698F9DB28B6F6EF00B0DFF5 /* Assets.xcassets in Resources */,
-				1698F9D928B6F6ED00B0DFF5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,14 +588,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1698F9D728B6F6ED00B0DFF5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1698F9D828B6F6ED00B0DFF5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1698F9DC28B6F6EF00B0DFF5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
