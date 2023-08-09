@@ -22,7 +22,6 @@ class MarinasSearchCoordinator: Coordinatable {
         marinasSearchViewController = MarinasSearchViewController()
         marinasSearchViewController.viewModel = viewModel
         viewModel.coordinatorDelegate = self
-        marinasSearchViewController.viewModel = viewModel
     }
 
     func start() {

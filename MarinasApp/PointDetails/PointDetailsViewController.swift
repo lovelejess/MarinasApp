@@ -26,6 +26,7 @@ class PointDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.getName()
+        view.backgroundColor = .white
         view.addSubview(detailsView)
         setLayoutForOfferDetailView()
     }
