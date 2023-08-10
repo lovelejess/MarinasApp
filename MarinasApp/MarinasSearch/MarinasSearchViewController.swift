@@ -52,26 +52,6 @@ class MarinasSearchViewController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: false)
           })
         .store(in: &subscribers)
-
-//        viewModel.point
-//        .receive(on: DispatchQueue.main)
-//        .sink(receiveCompletion: { value in
-//            switch value {
-//            case .failure:
-//                print("Failure")
-//            case .finished:
-//                print("Finished")
-//            }
-//        }, receiveValue: { [weak self] point in
-//            guard let self = self else { return }
-//            var url: URL? = nil
-//            if let urlString = point.url {
-//                url = URL(string: urlString)
-//            }
-//            let pointDetails = PointDetails(name: point.name, image: point.images.data.first?.smallUrl, kind: point.kind, url: url)
-//            self.coordinator?.navigate(to: .rootTabBar(.searchMarinas(.point(point: pointDetails))))
-//          })
-//        .store(in: &subscribers)
     }
 
     private func configureSearchController() {
